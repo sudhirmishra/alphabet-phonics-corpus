@@ -7,6 +7,21 @@ Includes:
 - **Portable JSON Dataset**: Structured format in [`data/corpus.json`](data/corpus.json) ideal for web apps and APIs.
 - **Interactive Web Player**: Static GitHub Pages site in [`index.html`](index.html) for listening to words and sentences letter by letter.
 - **Batch Generation Scripts**: Automated generation using Python and Kokoro TTS.
+- **Suno Bark Expressive Narration**: Dedicated 200-word expressive story prompt (`data/bark_prompt_a_to_d.txt`) and pipeline script (`scripts/generate_bark_narration.py`) covering letters A to D.
+
+---
+
+## 🎭 Bark Story Narration (Letters A to D)
+
+In addition to individual letter/word/sentence phonics audio, the repository includes a custom, emotionally expressive 200-word narrative prompt designed specifically for [Suno Bark](https://github.com/suno-ai/bark):
+
+- **Prompt File**: [`data/bark_prompt_a_to_d.txt`](data/bark_prompt_a_to_d.txt) (exactly 200 words, embedding vocal cues like `[sigh]`, `[laughs]`, and `[gasp]`).
+- **Generation Script**: [`scripts/generate_bark_narration.py`](scripts/generate_bark_narration.py) splits long text into semantic chunks, synthesizes expressive audio with speaker presets (e.g. `v2/en_speaker_6`), and concatenates them with natural conversational pauses.
+
+To run Bark synthesis:
+```bash
+python scripts/generate_bark_narration.py --voice v2/en_speaker_6
+```
 
 ---
 
