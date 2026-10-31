@@ -9,15 +9,24 @@ CREATE TABLE IF NOT EXISTS letters (
     description TEXT
 );
 
+CREATE TABLE IF NOT EXISTS grades (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    age_range TEXT,
+    description TEXT,
+    rank INTEGER NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS words (
     id TEXT PRIMARY KEY,
     letter TEXT NOT NULL,
     word TEXT NOT NULL,
+    grade TEXT NOT NULL,
     part_of_speech TEXT,
-    difficulty TEXT DEFAULT 'beginner',
     audio_path TEXT,
     image_path TEXT,
-    FOREIGN KEY (letter) REFERENCES letters(letter)
+    FOREIGN KEY (letter) REFERENCES letters(letter),
+    FOREIGN KEY (grade) REFERENCES grades(id)
 );
 
 CREATE TABLE IF NOT EXISTS sentences (
@@ -29,12 +38,31 @@ CREATE TABLE IF NOT EXISTS sentences (
 );
 
 CREATE INDEX IF NOT EXISTS idx_words_letter ON words(letter);
+CREATE INDEX IF NOT EXISTS idx_words_grade ON words(grade);
 CREATE INDEX IF NOT EXISTS idx_sentences_word_id ON sentences(word_id);
 """
 
+GRADES_DATA = [
+    ("Pre-K", "Pre-Kindergarten", "3-4", "Simple 3-letter CVC words, foundational phonics", 0),
+    ("Kindergarten", "Kindergarten", "5-6", "Early sight words, short vowels, foundational reading", 1),
+    ("Grade 1", "First Grade", "6-7", "Consonant blends, long vowels, high-frequency sight words", 2),
+    ("Grade 2", "Second Grade", "7-8", "Multi-syllable basics, compound words, descriptive words", 3),
+    ("Grade 3", "Third Grade", "8-9", "Descriptive adjectives, nature, school, and community concepts", 4),
+    ("Grade 4", "Fourth Grade", "9-10", "Academic, scientific, and literary vocabulary", 5),
+    ("Grade 5", "Fifth Grade", "10-11", "Abstract thinking, expressive words, advanced concepts", 6)
+]
+
 def init_db(db_path: Path):
+    if db_path.exists():
+        db_path.unlink()  # Clean reset for new schema
     conn = sqlite3.connect(db_path)
     conn.executescript(SCHEMA_SQL)
+    cur = conn.cursor()
+    for gid, name, age, desc, rank in GRADES_DATA:
+        cur.execute(
+            "INSERT OR REPLACE INTO grades (id, name, age_range, description, rank) VALUES (?, ?, ?, ?, ?)",
+            (gid, name, age, desc, rank)
+        )
     conn.commit()
     conn.close()
 
@@ -53,14 +81,14 @@ def build_db_from_json(json_path: Path, db_path: Path):
         for w in item.get("words", []):
             cur.execute(
                 """INSERT OR REPLACE INTO words 
-                   (id, letter, word, part_of_speech, difficulty, audio_path, image_path) 
+                   (id, letter, word, grade, part_of_speech, audio_path, image_path) 
                    VALUES (?, ?, ?, ?, ?, ?, ?)""",
                 (
                     w["id"],
                     item["letter"],
                     w["word"],
+                    w.get("grade", "Pre-K"),
                     w.get("part_of_speech", ""),
-                    w.get("difficulty", "beginner"),
                     w.get("audio_path", ""),
                     w.get("image_path", "")
                 )
@@ -82,6 +110,6 @@ if __name__ == "__main__":
     init_db(db_file)
     if json_file.exists():
         build_db_from_json(json_file, db_file)
-        print(f"Database populated at: {db_file}")
+        print(f"Database successfully rebuilt & populated at: {db_file}")
     else:
         print(f"Database initialized at: {db_file}")

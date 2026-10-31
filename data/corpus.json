@@ -5,17 +5,107 @@
     "description": "First letter of the alphabet",
     "words": [
       {
+        "id": "word_a_ant",
+        "word": "Ant",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/a_ant.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_a_ant_1",
+            "sentence": "A tiny ant crawls on the leaf.",
+            "audio_path": "audio/sentences/a_ant_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_a_apple",
         "word": "Apple",
+        "grade": "Kindergarten",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/a_apple.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_a_apple_1",
-            "sentence": "An apple a day keeps the doctor away.",
+            "sentence": "I bite into a sweet red apple.",
             "audio_path": "audio/sentences/a_apple_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_a_acorn",
+        "word": "Acorn",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/a_acorn.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_a_acorn_1",
+            "sentence": "A squirrel hides an acorn under the tree.",
+            "audio_path": "audio/sentences/a_acorn_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_a_anchor",
+        "word": "Anchor",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/a_anchor.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_a_anchor_1",
+            "sentence": "The heavy anchor keeps the boat in place.",
+            "audio_path": "audio/sentences/a_anchor_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_a_astronaut",
+        "word": "Astronaut",
+        "grade": "Grade 3",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/a_astronaut.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_a_astronaut_1",
+            "sentence": "The astronaut floats gently in outer space.",
+            "audio_path": "audio/sentences/a_astronaut_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_a_altitude",
+        "word": "Altitude",
+        "grade": "Grade 4",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/a_altitude.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_a_altitude_1",
+            "sentence": "The airplane reached a high altitude above the clouds.",
+            "audio_path": "audio/sentences/a_altitude_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_a_abundance",
+        "word": "Abundance",
+        "grade": "Grade 5",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/a_abundance.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_a_abundance_1",
+            "sentence": "The garden produced an abundance of fresh vegetables.",
+            "audio_path": "audio/sentences/a_abundance_1.wav"
           }
         ]
       }
@@ -27,17 +117,107 @@
     "description": "Second letter of the alphabet",
     "words": [
       {
-        "id": "word_b_butterfly",
-        "word": "Butterfly",
+        "id": "word_b_bat",
+        "word": "Bat",
+        "grade": "Pre-K",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
-        "audio_path": "audio/words/b_butterfly.wav",
+        "audio_path": "audio/words/b_bat.wav",
         "image_path": "",
         "sentences": [
           {
-            "id": "sent_b_butterfly_1",
-            "sentence": "The butterfly fluttered across the vibrant summer garden.",
-            "audio_path": "audio/sentences/b_butterfly_1.wav"
+            "id": "sent_b_bat_1",
+            "sentence": "The brown bat flies at night.",
+            "audio_path": "audio/sentences/b_bat_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_b_ball",
+        "word": "Ball",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/b_ball.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_b_ball_1",
+            "sentence": "She rolls the bright red ball to me.",
+            "audio_path": "audio/sentences/b_ball_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_b_bird",
+        "word": "Bird",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/b_bird.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_b_bird_1",
+            "sentence": "A little blue bird sings on the branch.",
+            "audio_path": "audio/sentences/b_bird_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_b_bridge",
+        "word": "Bridge",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/b_bridge.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_b_bridge_1",
+            "sentence": "We walked safely across the wooden bridge.",
+            "audio_path": "audio/sentences/b_bridge_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_b_bicycle",
+        "word": "Bicycle",
+        "grade": "Grade 3",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/b_bicycle.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_b_bicycle_1",
+            "sentence": "He rode his new bicycle around the park.",
+            "audio_path": "audio/sentences/b_bicycle_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_b_blizzard",
+        "word": "Blizzard",
+        "grade": "Grade 4",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/b_blizzard.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_b_blizzard_1",
+            "sentence": "A winter blizzard covered the rooftops in snow.",
+            "audio_path": "audio/sentences/b_blizzard_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_b_benevolent",
+        "word": "Benevolent",
+        "grade": "Grade 5",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/b_benevolent.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_b_benevolent_1",
+            "sentence": "The benevolent queen helped everyone in the village.",
+            "audio_path": "audio/sentences/b_benevolent_1.wav"
           }
         ]
       }
@@ -49,17 +229,107 @@
     "description": "Third letter of the alphabet",
     "words": [
       {
+        "id": "word_c_cat",
+        "word": "Cat",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/c_cat.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_c_cat_1",
+            "sentence": "The soft cat purrs on my lap.",
+            "audio_path": "audio/sentences/c_cat_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_c_cup",
+        "word": "Cup",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/c_cup.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_c_cup_1",
+            "sentence": "I drink cold water from a blue cup.",
+            "audio_path": "audio/sentences/c_cup_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_c_cloud",
+        "word": "Cloud",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/c_cloud.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_c_cloud_1",
+            "sentence": "A fluffy white cloud drifts in the sky.",
+            "audio_path": "audio/sentences/c_cloud_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_c_castle",
+        "word": "Castle",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/c_castle.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_c_castle_1",
+            "sentence": "The king lived in a grand stone castle.",
+            "audio_path": "audio/sentences/c_castle_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_c_compass",
+        "word": "Compass",
+        "grade": "Grade 3",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/c_compass.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_c_compass_1",
+            "sentence": "The compass needle pointed straight to the north.",
+            "audio_path": "audio/sentences/c_compass_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_c_curiosity",
         "word": "Curiosity",
+        "grade": "Grade 4",
         "part_of_speech": "noun",
-        "difficulty": "intermediate",
         "audio_path": "audio/words/c_curiosity.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_c_curiosity_1",
-            "sentence": "Curiosity sparks the beginning of every great discovery.",
+            "sentence": "Curiosity leads scientists to make new discoveries.",
             "audio_path": "audio/sentences/c_curiosity_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_c_courageous",
+        "word": "Courageous",
+        "grade": "Grade 5",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/c_courageous.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_c_courageous_1",
+            "sentence": "The courageous climber reached the mountain summit.",
+            "audio_path": "audio/sentences/c_courageous_1.wav"
           }
         ]
       }
@@ -71,17 +341,107 @@
     "description": "Fourth letter of the alphabet",
     "words": [
       {
+        "id": "word_d_dog",
+        "word": "Dog",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/d_dog.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_d_dog_1",
+            "sentence": "The happy dog wags its tail.",
+            "audio_path": "audio/sentences/d_dog_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_d_duck",
+        "word": "Duck",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/d_duck.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_d_duck_1",
+            "sentence": "A yellow duck swims across the quiet pond.",
+            "audio_path": "audio/sentences/d_duck_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_d_drum",
+        "word": "Drum",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/d_drum.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_d_drum_1",
+            "sentence": "He tapped a steady beat on the drum.",
+            "audio_path": "audio/sentences/d_drum_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_d_dragon",
+        "word": "Dragon",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/d_dragon.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_d_dragon_1",
+            "sentence": "The friendly green dragon flew through the clouds.",
+            "audio_path": "audio/sentences/d_dragon_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_d_dolphin",
         "word": "Dolphin",
+        "grade": "Grade 3",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/d_dolphin.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_d_dolphin_1",
-            "sentence": "The dolphin leapt gracefully above the sparkling ocean waves.",
+            "sentence": "A playful dolphin leapt gracefully out of the ocean.",
             "audio_path": "audio/sentences/d_dolphin_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_d_dormant",
+        "word": "Dormant",
+        "grade": "Grade 4",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/d_dormant.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_d_dormant_1",
+            "sentence": "The dormant volcano has been peaceful for centuries.",
+            "audio_path": "audio/sentences/d_dormant_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_d_diligent",
+        "word": "Diligent",
+        "grade": "Grade 5",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/d_diligent.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_d_diligent_1",
+            "sentence": "The diligent student studied hard every single afternoon.",
+            "audio_path": "audio/sentences/d_diligent_1.wav"
           }
         ]
       }
@@ -93,17 +453,107 @@
     "description": "Fifth letter of the alphabet",
     "words": [
       {
-        "id": "word_e_elephant",
-        "word": "Elephant",
+        "id": "word_e_egg",
+        "word": "Egg",
+        "grade": "Pre-K",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
-        "audio_path": "audio/words/e_elephant.wav",
+        "audio_path": "audio/words/e_egg.wav",
         "image_path": "",
         "sentences": [
           {
-            "id": "sent_e_elephant_1",
-            "sentence": "The gentle elephant walked quietly along the river bank.",
-            "audio_path": "audio/sentences/e_elephant_1.wav"
+            "id": "sent_e_egg_1",
+            "sentence": "A small bird hatches from the white egg.",
+            "audio_path": "audio/sentences/e_egg_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_e_elf",
+        "word": "Elf",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/e_elf.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_e_elf_1",
+            "sentence": "The busy elf made wooden toys.",
+            "audio_path": "audio/sentences/e_elf_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_e_eagle",
+        "word": "Eagle",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/e_eagle.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_e_eagle_1",
+            "sentence": "A majestic eagle soared high above the cliffs.",
+            "audio_path": "audio/sentences/e_eagle_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_e_engine",
+        "word": "Engine",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/e_engine.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_e_engine_1",
+            "sentence": "The train engine chugged along the iron tracks.",
+            "audio_path": "audio/sentences/e_engine_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_e_echo",
+        "word": "Echo",
+        "grade": "Grade 3",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/e_echo.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_e_echo_1",
+            "sentence": "Our voices made a clear echo across the canyon.",
+            "audio_path": "audio/sentences/e_echo_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_e_ecosystem",
+        "word": "Ecosystem",
+        "grade": "Grade 4",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/e_ecosystem.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_e_ecosystem_1",
+            "sentence": "Every animal plays an important role in the forest ecosystem.",
+            "audio_path": "audio/sentences/e_ecosystem_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_e_eloquent",
+        "word": "Eloquent",
+        "grade": "Grade 5",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/e_eloquent.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_e_eloquent_1",
+            "sentence": "Her eloquent speech inspired everyone in the auditorium.",
+            "audio_path": "audio/sentences/e_eloquent_1.wav"
           }
         ]
       }
@@ -115,17 +565,107 @@
     "description": "Sixth letter of the alphabet",
     "words": [
       {
-        "id": "word_f_firefly",
-        "word": "Firefly",
+        "id": "word_f_fox",
+        "word": "Fox",
+        "grade": "Pre-K",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
-        "audio_path": "audio/words/f_firefly.wav",
+        "audio_path": "audio/words/f_fox.wav",
         "image_path": "",
         "sentences": [
           {
-            "id": "sent_f_firefly_1",
-            "sentence": "A glowing firefly lit up the twilight evening.",
-            "audio_path": "audio/sentences/f_firefly_1.wav"
+            "id": "sent_f_fox_1",
+            "sentence": "The red fox hid behind the tall bush.",
+            "audio_path": "audio/sentences/f_fox_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_f_fish",
+        "word": "Fish",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/f_fish.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_f_fish_1",
+            "sentence": "The little orange fish swims in clear water.",
+            "audio_path": "audio/sentences/f_fish_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_f_frog",
+        "word": "Frog",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/f_frog.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_f_frog_1",
+            "sentence": "A green frog hopped into the lily pond.",
+            "audio_path": "audio/sentences/f_frog_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_f_feather",
+        "word": "Feather",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/f_feather.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_f_feather_1",
+            "sentence": "A soft feather drifted slowly to the ground.",
+            "audio_path": "audio/sentences/f_feather_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_f_fossil",
+        "word": "Fossil",
+        "grade": "Grade 3",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/f_fossil.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_f_fossil_1",
+            "sentence": "The ancient fossil was preserved in solid rock.",
+            "audio_path": "audio/sentences/f_fossil_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_f_fierce",
+        "word": "Fierce",
+        "grade": "Grade 4",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/f_fierce.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_f_fierce_1",
+            "sentence": "A fierce wind rattled the tall pine trees.",
+            "audio_path": "audio/sentences/f_fierce_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_f_flourish",
+        "word": "Flourish",
+        "grade": "Grade 5",
+        "part_of_speech": "verb",
+        "audio_path": "audio/words/f_flourish.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_f_flourish_1",
+            "sentence": "Wildflowers flourish during the warm spring months.",
+            "audio_path": "audio/sentences/f_flourish_1.wav"
           }
         ]
       }
@@ -137,17 +677,107 @@
     "description": "Seventh letter of the alphabet",
     "words": [
       {
-        "id": "word_g_giraffe",
-        "word": "Giraffe",
+        "id": "word_g_gum",
+        "word": "Gum",
+        "grade": "Pre-K",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
-        "audio_path": "audio/words/g_giraffe.wav",
+        "audio_path": "audio/words/g_gum.wav",
         "image_path": "",
         "sentences": [
           {
-            "id": "sent_g_giraffe_1",
-            "sentence": "The tall giraffe nibbled leaves from the highest acacia branch.",
-            "audio_path": "audio/sentences/g_giraffe_1.wav"
+            "id": "sent_g_gum_1",
+            "sentence": "He blew a pink bubble with sweet gum.",
+            "audio_path": "audio/sentences/g_gum_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_g_gift",
+        "word": "Gift",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/g_gift.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_g_gift_1",
+            "sentence": "I wrapped a special gift with a red ribbon.",
+            "audio_path": "audio/sentences/g_gift_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_g_grass",
+        "word": "Grass",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/g_grass.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_g_grass_1",
+            "sentence": "Green grass grew thick in the sunny meadow.",
+            "audio_path": "audio/sentences/g_grass_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_g_garden",
+        "word": "Garden",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/g_garden.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_g_garden_1",
+            "sentence": "Bright red tulips bloomed across our front garden.",
+            "audio_path": "audio/sentences/g_garden_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_g_glacier",
+        "word": "Glacier",
+        "grade": "Grade 3",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/g_glacier.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_g_glacier_1",
+            "sentence": "The huge glacier melted slowly into the sea.",
+            "audio_path": "audio/sentences/g_glacier_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_g_gravity",
+        "word": "Gravity",
+        "grade": "Grade 4",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/g_gravity.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_g_gravity_1",
+            "sentence": "Gravity keeps our feet firmly on the ground.",
+            "audio_path": "audio/sentences/g_gravity_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_g_gratitude",
+        "word": "Gratitude",
+        "grade": "Grade 5",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/g_gratitude.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_g_gratitude_1",
+            "sentence": "We expressed heartfelt gratitude for their generous support.",
+            "audio_path": "audio/sentences/g_gratitude_1.wav"
           }
         ]
       }
@@ -159,17 +789,107 @@
     "description": "Eighth letter of the alphabet",
     "words": [
       {
+        "id": "word_h_hat",
+        "word": "Hat",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/h_hat.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_h_hat_1",
+            "sentence": "She wears a yellow hat in the sun.",
+            "audio_path": "audio/sentences/h_hat_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_h_hen",
+        "word": "Hen",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/h_hen.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_h_hen_1",
+            "sentence": "The mother hen pecked at seeds on the ground.",
+            "audio_path": "audio/sentences/h_hen_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_h_heart",
+        "word": "Heart",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/h_heart.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_h_heart_1",
+            "sentence": "My heart beat fast after running up the hill.",
+            "audio_path": "audio/sentences/h_heart_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_h_helmet",
+        "word": "Helmet",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/h_helmet.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_h_helmet_1",
+            "sentence": "Always wear a sturdy helmet while riding your bike.",
+            "audio_path": "audio/sentences/h_helmet_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_h_horizon",
+        "word": "Horizon",
+        "grade": "Grade 3",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/h_horizon.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_h_horizon_1",
+            "sentence": "The orange sun sank slowly below the distant horizon.",
+            "audio_path": "audio/sentences/h_horizon_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_h_harmony",
         "word": "Harmony",
+        "grade": "Grade 4",
         "part_of_speech": "noun",
-        "difficulty": "intermediate",
         "audio_path": "audio/words/h_harmony.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_h_harmony_1",
-            "sentence": "The choir sang in perfect harmony under the cathedral dome.",
+            "sentence": "The choir singers blended their voices in perfect harmony.",
             "audio_path": "audio/sentences/h_harmony_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_h_hesitant",
+        "word": "Hesitant",
+        "grade": "Grade 5",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/h_hesitant.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_h_hesitant_1",
+            "sentence": "He was hesitant at first, but soon joined the team.",
+            "audio_path": "audio/sentences/h_hesitant_1.wav"
           }
         ]
       }
@@ -181,17 +901,107 @@
     "description": "Ninth letter of the alphabet",
     "words": [
       {
+        "id": "word_i_ice",
+        "word": "Ice",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/i_ice.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_i_ice_1",
+            "sentence": "The ice is cold and slippery.",
+            "audio_path": "audio/sentences/i_ice_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_i_ink",
+        "word": "Ink",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/i_ink.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_i_ink_1",
+            "sentence": "The black ink made dark letters on the paper.",
+            "audio_path": "audio/sentences/i_ink_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_i_igloo",
+        "word": "Igloo",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/i_igloo.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_i_igloo_1",
+            "sentence": "The warm lamp glowed inside the snowy igloo.",
+            "audio_path": "audio/sentences/i_igloo_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_i_island",
         "word": "Island",
+        "grade": "Grade 2",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/i_island.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_i_island_1",
-            "sentence": "The tropical island was surrounded by crystal clear turquoise waters.",
+            "sentence": "Palm trees lined the sandy shore of the island.",
             "audio_path": "audio/sentences/i_island_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_i_insect",
+        "word": "Insect",
+        "grade": "Grade 3",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/i_insect.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_i_insect_1",
+            "sentence": "A tiny striped insect crawled across the green leaf.",
+            "audio_path": "audio/sentences/i_insect_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_i_illuminate",
+        "word": "Illuminate",
+        "grade": "Grade 4",
+        "part_of_speech": "verb",
+        "audio_path": "audio/words/i_illuminate.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_i_illuminate_1",
+            "sentence": "Lanterns illuminate the garden walkway at night.",
+            "audio_path": "audio/sentences/i_illuminate_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_i_ingenious",
+        "word": "Ingenious",
+        "grade": "Grade 5",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/i_ingenious.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_i_ingenious_1",
+            "sentence": "She invented an ingenious device to clean ocean plastic.",
+            "audio_path": "audio/sentences/i_ingenious_1.wav"
           }
         ]
       }
@@ -203,17 +1013,107 @@
     "description": "Tenth letter of the alphabet",
     "words": [
       {
+        "id": "word_j_jam",
+        "word": "Jam",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/j_jam.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_j_jam_1",
+            "sentence": "I spread sweet strawberry jam on toast.",
+            "audio_path": "audio/sentences/j_jam_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_j_jug",
+        "word": "Jug",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/j_jug.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_j_jug_1",
+            "sentence": "We poured cold milk from a tall jug.",
+            "audio_path": "audio/sentences/j_jug_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_j_jump",
+        "word": "Jump",
+        "grade": "Grade 1",
+        "part_of_speech": "verb",
+        "audio_path": "audio/words/j_jump.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_j_jump_1",
+            "sentence": "The kids jump high over the skipping rope.",
+            "audio_path": "audio/sentences/j_jump_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_j_jacket",
+        "word": "Jacket",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/j_jacket.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_j_jacket_1",
+            "sentence": "Zip up your warm jacket before going outside.",
+            "audio_path": "audio/sentences/j_jacket_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_j_jungle",
+        "word": "Jungle",
+        "grade": "Grade 3",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/j_jungle.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_j_jungle_1",
+            "sentence": "Many colorful birds live in the tropical jungle.",
+            "audio_path": "audio/sentences/j_jungle_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_j_journey",
         "word": "Journey",
+        "grade": "Grade 4",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/j_journey.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_j_journey_1",
-            "sentence": "Every long journey begins with a single brave step.",
+            "sentence": "Their brave journey led them across desert sands.",
             "audio_path": "audio/sentences/j_journey_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_j_judicious",
+        "word": "Judicious",
+        "grade": "Grade 5",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/j_judicious.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_j_judicious_1",
+            "sentence": "A judicious judge listens carefully to all evidence.",
+            "audio_path": "audio/sentences/j_judicious_1.wav"
           }
         ]
       }
@@ -225,17 +1125,107 @@
     "description": "Eleventh letter of the alphabet",
     "words": [
       {
+        "id": "word_k_kid",
+        "word": "Kid",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/k_kid.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_k_kid_1",
+            "sentence": "A cheerful kid played in the sandbox.",
+            "audio_path": "audio/sentences/k_kid_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_k_kite",
+        "word": "Kite",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/k_kite.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_k_kite_1",
+            "sentence": "A bright diamond kite danced in the spring wind.",
+            "audio_path": "audio/sentences/k_kite_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_k_king",
+        "word": "King",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/k_king.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_k_king_1",
+            "sentence": "The wise king sat upon the golden throne.",
+            "audio_path": "audio/sentences/k_king_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_k_kitten",
+        "word": "Kitten",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/k_kitten.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_k_kitten_1",
+            "sentence": "The fluffy kitten chased a ball of blue yarn.",
+            "audio_path": "audio/sentences/k_kitten_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_k_kangaroo",
         "word": "Kangaroo",
+        "grade": "Grade 3",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/k_kangaroo.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_k_kangaroo_1",
-            "sentence": "A mother kangaroo carried her joey across the open grassland.",
+            "sentence": "A mother kangaroo hopped through the open plains.",
             "audio_path": "audio/sentences/k_kangaroo_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_k_keen",
+        "word": "Keen",
+        "grade": "Grade 4",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/k_keen.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_k_keen_1",
+            "sentence": "Hawks have keen eyesight to spot prey from afar.",
+            "audio_path": "audio/sentences/k_keen_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_k_kinship",
+        "word": "Kinship",
+        "grade": "Grade 5",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/k_kinship.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_k_kinship_1",
+            "sentence": "The teammates felt a strong kinship after working together.",
+            "audio_path": "audio/sentences/k_kinship_1.wav"
           }
         ]
       }
@@ -247,17 +1237,107 @@
     "description": "Twelfth letter of the alphabet",
     "words": [
       {
+        "id": "word_l_log",
+        "word": "Log",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/l_log.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_l_log_1",
+            "sentence": "A sleepy turtle rested on a wooden log.",
+            "audio_path": "audio/sentences/l_log_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_l_leg",
+        "word": "Leg",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/l_leg.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_l_leg_1",
+            "sentence": "He kicked the soccer ball with his right leg.",
+            "audio_path": "audio/sentences/l_leg_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_l_leaf",
+        "word": "Leaf",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/l_leaf.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_l_leaf_1",
+            "sentence": "A golden autumn leaf fluttered down from the tree.",
+            "audio_path": "audio/sentences/l_leaf_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_l_lantern",
+        "word": "Lantern",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/l_lantern.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_l_lantern_1",
+            "sentence": "We carried a bright lantern into the dark cave.",
+            "audio_path": "audio/sentences/l_lantern_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_l_lighthouse",
         "word": "Lighthouse",
+        "grade": "Grade 3",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/l_lighthouse.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_l_lighthouse_1",
-            "sentence": "The beacon of the lighthouse guided ships safely through the storm.",
+            "sentence": "The lighthouse beamed bright light across the stormy waves.",
             "audio_path": "audio/sentences/l_lighthouse_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_l_luminous",
+        "word": "Luminous",
+        "grade": "Grade 4",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/l_luminous.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_l_luminous_1",
+            "sentence": "Fireflies created a luminous glow in the evening forest.",
+            "audio_path": "audio/sentences/l_luminous_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_l_liberate",
+        "word": "Liberate",
+        "grade": "Grade 5",
+        "part_of_speech": "verb",
+        "audio_path": "audio/words/l_liberate.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_l_liberate_1",
+            "sentence": "Volunteers worked tirelessly to liberate trapped wildlife.",
+            "audio_path": "audio/sentences/l_liberate_1.wav"
           }
         ]
       }
@@ -269,17 +1349,107 @@
     "description": "Thirteenth letter of the alphabet",
     "words": [
       {
+        "id": "word_m_map",
+        "word": "Map",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/m_map.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_m_map_1",
+            "sentence": "We looked at the treasure map to find the trail.",
+            "audio_path": "audio/sentences/m_map_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_m_mug",
+        "word": "Mug",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/m_mug.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_m_mug_1",
+            "sentence": "Dad held a warm mug of cocoa in both hands.",
+            "audio_path": "audio/sentences/m_mug_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_m_moon",
+        "word": "Moon",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/m_moon.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_m_moon_1",
+            "sentence": "The full moon shone like silver in the night sky.",
+            "audio_path": "audio/sentences/m_moon_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_m_monkey",
+        "word": "Monkey",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/m_monkey.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_m_monkey_1",
+            "sentence": "A funny monkey swung between the leafy branches.",
+            "audio_path": "audio/sentences/m_monkey_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_m_mountain",
         "word": "Mountain",
+        "grade": "Grade 3",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/m_mountain.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_m_mountain_1",
-            "sentence": "Snow blanketed the rugged peaks of the majestic mountain.",
+            "sentence": "Snow covered the sharp peaks of the tall mountain.",
             "audio_path": "audio/sentences/m_mountain_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_m_mirage",
+        "word": "Mirage",
+        "grade": "Grade 4",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/m_mirage.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_m_mirage_1",
+            "sentence": "A shimmering mirage appeared on the hot desert road.",
+            "audio_path": "audio/sentences/m_mirage_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_m_meticulous",
+        "word": "Meticulous",
+        "grade": "Grade 5",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/m_meticulous.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_m_meticulous_1",
+            "sentence": "The artist was meticulous with every brushstroke.",
+            "audio_path": "audio/sentences/m_meticulous_1.wav"
           }
         ]
       }
@@ -291,17 +1461,107 @@
     "description": "Fourteenth letter of the alphabet",
     "words": [
       {
+        "id": "word_n_net",
+        "word": "Net",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/n_net.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_n_net_1",
+            "sentence": "We caught tiny minnows with a small mesh net.",
+            "audio_path": "audio/sentences/n_net_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_n_nut",
+        "word": "Nut",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/n_nut.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_n_nut_1",
+            "sentence": "The brown squirrel cracked open a tasty nut.",
+            "audio_path": "audio/sentences/n_nut_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_n_nest",
+        "word": "Nest",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/n_nest.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_n_nest_1",
+            "sentence": "Three blue eggs rested safely inside the bird nest.",
+            "audio_path": "audio/sentences/n_nest_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_n_needle",
+        "word": "Needle",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/n_needle.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_n_needle_1",
+            "sentence": "Grandma threaded the silver needle with green yarn.",
+            "audio_path": "audio/sentences/n_needle_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_n_nomad",
+        "word": "Nomad",
+        "grade": "Grade 3",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/n_nomad.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_n_nomad_1",
+            "sentence": "The nomad traveled across rolling desert dunes with camels.",
+            "audio_path": "audio/sentences/n_nomad_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_n_nebula",
         "word": "Nebula",
+        "grade": "Grade 4",
         "part_of_speech": "noun",
-        "difficulty": "intermediate",
         "audio_path": "audio/words/n_nebula.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_n_nebula_1",
-            "sentence": "The telescope revealed a colourful nebula glowing in deep space.",
+            "sentence": "A colourful nebula glowed brightly in deep outer space.",
             "audio_path": "audio/sentences/n_nebula_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_n_navigate",
+        "word": "Navigate",
+        "grade": "Grade 5",
+        "part_of_speech": "verb",
+        "audio_path": "audio/words/n_navigate.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_n_navigate_1",
+            "sentence": "Ancient sailors used bright stars to navigate across the ocean.",
+            "audio_path": "audio/sentences/n_navigate_1.wav"
           }
         ]
       }
@@ -313,17 +1573,107 @@
     "description": "Fifteenth letter of the alphabet",
     "words": [
       {
+        "id": "word_o_owl",
+        "word": "Owl",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/o_owl.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_o_owl_1",
+            "sentence": "A wise owl hooted softly from the tree.",
+            "audio_path": "audio/sentences/o_owl_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_o_ox",
+        "word": "Ox",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/o_ox.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_o_ox_1",
+            "sentence": "The strong ox pulled the wagon through the farm.",
+            "audio_path": "audio/sentences/o_ox_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_o_orange",
+        "word": "Orange",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/o_orange.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_o_orange_1",
+            "sentence": "She peeled a sweet and juicy orange for snack time.",
+            "audio_path": "audio/sentences/o_orange_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_o_otter",
+        "word": "Otter",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/o_otter.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_o_otter_1",
+            "sentence": "A playful river otter floated happily on its back.",
+            "audio_path": "audio/sentences/o_otter_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_o_ocean",
         "word": "Ocean",
+        "grade": "Grade 3",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/o_ocean.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_o_ocean_1",
-            "sentence": "The vast ocean stretched endlessly beneath the golden horizon.",
+            "sentence": "Gentle blue waves rolled across the vast ocean.",
             "audio_path": "audio/sentences/o_ocean_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_o_orbit",
+        "word": "Orbit",
+        "grade": "Grade 4",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/o_orbit.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_o_orbit_1",
+            "sentence": "The moon completes one full orbit around the earth every month.",
+            "audio_path": "audio/sentences/o_orbit_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_o_optimistic",
+        "word": "Optimistic",
+        "grade": "Grade 5",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/o_optimistic.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_o_optimistic_1",
+            "sentence": "Despite the rainy forecast, she remained optimistic about our picnic.",
+            "audio_path": "audio/sentences/o_optimistic_1.wav"
           }
         ]
       }
@@ -335,17 +1685,107 @@
     "description": "Sixteenth letter of the alphabet",
     "words": [
       {
+        "id": "word_p_pig",
+        "word": "Pig",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/p_pig.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_p_pig_1",
+            "sentence": "The pink pig splashed in a muddy puddle.",
+            "audio_path": "audio/sentences/p_pig_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_p_pan",
+        "word": "Pan",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/p_pan.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_p_pan_1",
+            "sentence": "Mom baked sweet blueberry pancakes in a warm pan.",
+            "audio_path": "audio/sentences/p_pan_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_p_puppy",
+        "word": "Puppy",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/p_puppy.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_p_puppy_1",
+            "sentence": "The fluffy puppy bounced excitedly near the front door.",
+            "audio_path": "audio/sentences/p_puppy_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_p_planet",
+        "word": "Planet",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/p_planet.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_p_planet_1",
+            "sentence": "Earth is the third planet orbiting our warm sun.",
+            "audio_path": "audio/sentences/p_planet_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_p_penguin",
         "word": "Penguin",
+        "grade": "Grade 3",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/p_penguin.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_p_penguin_1",
-            "sentence": "The penguin waddled across the ice before sliding into the sea.",
+            "sentence": "The penguin slid swiftly down the snowy ice hill.",
             "audio_path": "audio/sentences/p_penguin_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_p_pinnacle",
+        "word": "Pinnacle",
+        "grade": "Grade 4",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/p_pinnacle.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_p_pinnacle_1",
+            "sentence": "The climbers celebrated when they reached the pinnacle of the mountain.",
+            "audio_path": "audio/sentences/p_pinnacle_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_p_persevere",
+        "word": "Persevere",
+        "grade": "Grade 5",
+        "part_of_speech": "verb",
+        "audio_path": "audio/words/p_persevere.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_p_persevere_1",
+            "sentence": "If you persevere through challenges, you will achieve your dreams.",
+            "audio_path": "audio/sentences/p_persevere_1.wav"
           }
         ]
       }
@@ -357,17 +1797,107 @@
     "description": "Seventeenth letter of the alphabet",
     "words": [
       {
+        "id": "word_q_quack",
+        "word": "Quack",
+        "grade": "Pre-K",
+        "part_of_speech": "verb",
+        "audio_path": "audio/words/q_quack.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_q_quack_1",
+            "sentence": "The baby ducks quack as they follow their mother.",
+            "audio_path": "audio/sentences/q_quack_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_q_queen",
+        "word": "Queen",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/q_queen.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_q_queen_1",
+            "sentence": "The queen wore a sparkling silver crown upon her head.",
+            "audio_path": "audio/sentences/q_queen_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_q_quilt",
+        "word": "Quilt",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/q_quilt.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_q_quilt_1",
+            "sentence": "A warm handmade quilt kept us cozy all winter.",
+            "audio_path": "audio/sentences/q_quilt_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_q_quiver",
+        "word": "Quiver",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/q_quiver.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_q_quiver_1",
+            "sentence": "The archer pulled a wooden arrow from his leather quiver.",
+            "audio_path": "audio/sentences/q_quiver_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_q_quarry",
+        "word": "Quarry",
+        "grade": "Grade 3",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/q_quarry.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_q_quarry_1",
+            "sentence": "Workers cut large blocks of marble from the stone quarry.",
+            "audio_path": "audio/sentences/q_quarry_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_q_quasar",
         "word": "Quasar",
+        "grade": "Grade 4",
         "part_of_speech": "noun",
-        "difficulty": "advanced",
         "audio_path": "audio/words/q_quasar.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_q_quasar_1",
-            "sentence": "A distant quasar emits enormous amounts of cosmic energy.",
+            "sentence": "A distant quasar emits tremendous amounts of cosmic energy.",
             "audio_path": "audio/sentences/q_quasar_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_q_quintessential",
+        "word": "Quintessential",
+        "grade": "Grade 5",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/q_quintessential.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_q_quintessential_1",
+            "sentence": "Freshly baked apple pie is the quintessential autumn dessert.",
+            "audio_path": "audio/sentences/q_quintessential_1.wav"
           }
         ]
       }
@@ -379,17 +1909,107 @@
     "description": "Eighteenth letter of the alphabet",
     "words": [
       {
+        "id": "word_r_rug",
+        "word": "Rug",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/r_rug.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_r_rug_1",
+            "sentence": "We sat together on the soft woven rug.",
+            "audio_path": "audio/sentences/r_rug_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_r_ring",
+        "word": "Ring",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/r_ring.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_r_ring_1",
+            "sentence": "A shiny golden ring sparkled in the jewelry box.",
+            "audio_path": "audio/sentences/r_ring_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_r_rain",
+        "word": "Rain",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/r_rain.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_r_rain_1",
+            "sentence": "Cool spring rain tapped softly against the window glass.",
+            "audio_path": "audio/sentences/r_rain_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_r_rocket",
+        "word": "Rocket",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/r_rocket.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_r_rocket_1",
+            "sentence": "The roaring rocket blasted off toward the stars.",
+            "audio_path": "audio/sentences/r_rocket_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_r_rainbow",
         "word": "Rainbow",
+        "grade": "Grade 3",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/r_rainbow.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_r_rainbow_1",
-            "sentence": "A bright rainbow spanned across the valley after the afternoon shower.",
+            "sentence": "A bright rainbow arched across the valley after the shower.",
             "audio_path": "audio/sentences/r_rainbow_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_r_radiant",
+        "word": "Radiant",
+        "grade": "Grade 4",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/r_radiant.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_r_radiant_1",
+            "sentence": "The bride wore a radiant smile as music filled the hall.",
+            "audio_path": "audio/sentences/r_radiant_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_r_resilient",
+        "word": "Resilient",
+        "grade": "Grade 5",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/r_resilient.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_r_resilient_1",
+            "sentence": "The resilient oak tree stood firm against the raging gale.",
+            "audio_path": "audio/sentences/r_resilient_1.wav"
           }
         ]
       }
@@ -401,17 +2021,107 @@
     "description": "Nineteenth letter of the alphabet",
     "words": [
       {
+        "id": "word_s_sun",
+        "word": "Sun",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/s_sun.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_s_sun_1",
+            "sentence": "The warm yellow sun shines bright in the sky.",
+            "audio_path": "audio/sentences/s_sun_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_s_sock",
+        "word": "Sock",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/s_sock.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_s_sock_1",
+            "sentence": "I pulled a warm wool sock onto my cold foot.",
+            "audio_path": "audio/sentences/s_sock_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_s_star",
+        "word": "Star",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/s_star.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_s_star_1",
+            "sentence": "A tiny silver star twinkled high above the mountains.",
+            "audio_path": "audio/sentences/s_star_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_s_spider",
+        "word": "Spider",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/s_spider.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_s_spider_1",
+            "sentence": "The garden spider spun an intricate circular web.",
+            "audio_path": "audio/sentences/s_spider_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_s_sunflower",
         "word": "Sunflower",
+        "grade": "Grade 3",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/s_sunflower.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_s_sunflower_1",
-            "sentence": "The cheerful sunflower turned its face to follow the warmth of the sun.",
+            "sentence": "A cheerful sunflower turned to face the morning sun.",
             "audio_path": "audio/sentences/s_sunflower_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_s_stalwart",
+        "word": "Stalwart",
+        "grade": "Grade 4",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/s_stalwart.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_s_stalwart_1",
+            "sentence": "The stalwart bridge held firm through floods and storms.",
+            "audio_path": "audio/sentences/s_stalwart_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_s_serendipity",
+        "word": "Serendipity",
+        "grade": "Grade 5",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/s_serendipity.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_s_serendipity_1",
+            "sentence": "Finding my lost childhood photo inside an old book was pure serendipity.",
+            "audio_path": "audio/sentences/s_serendipity_1.wav"
           }
         ]
       }
@@ -423,17 +2133,107 @@
     "description": "Twentieth letter of the alphabet",
     "words": [
       {
+        "id": "word_t_tub",
+        "word": "Tub",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/t_tub.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_t_tub_1",
+            "sentence": "Warm water filled the bath tub with soapy bubbles.",
+            "audio_path": "audio/sentences/t_tub_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_t_top",
+        "word": "Top",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/t_top.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_t_top_1",
+            "sentence": "He spun the wooden top and watched it whirl around.",
+            "audio_path": "audio/sentences/t_top_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_t_tree",
+        "word": "Tree",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/t_tree.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_t_tree_1",
+            "sentence": "Birds built cozy nests inside the tall pine tree.",
+            "audio_path": "audio/sentences/t_tree_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_t_tiger",
+        "word": "Tiger",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/t_tiger.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_t_tiger_1",
+            "sentence": "The striped tiger walked quietly through tall jungle grass.",
+            "audio_path": "audio/sentences/t_tiger_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_t_telescope",
         "word": "Telescope",
+        "grade": "Grade 3",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/t_telescope.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_t_telescope_1",
-            "sentence": "Through the telescope, the craters on the moon appeared sharp and clear.",
+            "sentence": "Through the telescope, craters on the moon appeared sharp and clear.",
             "audio_path": "audio/sentences/t_telescope_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_t_turbulence",
+        "word": "Turbulence",
+        "grade": "Grade 4",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/t_turbulence.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_t_turbulence_1",
+            "sentence": "The aircraft experienced sudden turbulence over the mountains.",
+            "audio_path": "audio/sentences/t_turbulence_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_t_tranquil",
+        "word": "Tranquil",
+        "grade": "Grade 5",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/t_tranquil.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_t_tranquil_1",
+            "sentence": "The tranquil mountain lake reflected the snow-dusted peaks like glass.",
+            "audio_path": "audio/sentences/t_tranquil_1.wav"
           }
         ]
       }
@@ -445,17 +2245,107 @@
     "description": "Twenty-first letter of the alphabet",
     "words": [
       {
+        "id": "word_u_up",
+        "word": "Up",
+        "grade": "Pre-K",
+        "part_of_speech": "adverb",
+        "audio_path": "audio/words/u_up.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_u_up_1",
+            "sentence": "Look up at the fluffy clouds floating by!",
+            "audio_path": "audio/sentences/u_up_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_u_urn",
+        "word": "Urn",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/u_urn.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_u_urn_1",
+            "sentence": "A clay urn sat by the fountain in the courtyard.",
+            "audio_path": "audio/sentences/u_urn_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_u_under",
+        "word": "Under",
+        "grade": "Grade 1",
+        "part_of_speech": "preposition",
+        "audio_path": "audio/words/u_under.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_u_under_1",
+            "sentence": "The sleepy cat rested under the kitchen table.",
+            "audio_path": "audio/sentences/u_under_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_u_umbrella",
         "word": "Umbrella",
+        "grade": "Grade 2",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/u_umbrella.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_u_umbrella_1",
-            "sentence": "She opened her yellow umbrella as rain began to patter on the pavement.",
+            "sentence": "She held a yellow umbrella to keep off the rain.",
             "audio_path": "audio/sentences/u_umbrella_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_u_unicorn",
+        "word": "Unicorn",
+        "grade": "Grade 3",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/u_unicorn.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_u_unicorn_1",
+            "sentence": "The mythical unicorn had a shimmering silver horn.",
+            "audio_path": "audio/sentences/u_unicorn_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_u_unravel",
+        "word": "Unravel",
+        "grade": "Grade 4",
+        "part_of_speech": "verb",
+        "audio_path": "audio/words/u_unravel.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_u_unravel_1",
+            "sentence": "Detectives began to unravel the clues of the mystery.",
+            "audio_path": "audio/sentences/u_unravel_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_u_unanimous",
+        "word": "Unanimous",
+        "grade": "Grade 5",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/u_unanimous.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_u_unanimous_1",
+            "sentence": "The jury reached a unanimous verdict after careful review.",
+            "audio_path": "audio/sentences/u_unanimous_1.wav"
           }
         ]
       }
@@ -467,17 +2357,107 @@
     "description": "Twenty-second letter of the alphabet",
     "words": [
       {
+        "id": "word_v_van",
+        "word": "Van",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/v_van.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_v_van_1",
+            "sentence": "We rode to the beach inside a blue van.",
+            "audio_path": "audio/sentences/v_van_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_v_vest",
+        "word": "Vest",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/v_vest.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_v_vest_1",
+            "sentence": "He wore a warm wool vest over his collared shirt.",
+            "audio_path": "audio/sentences/v_vest_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_v_vine",
+        "word": "Vine",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/v_vine.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_v_vine_1",
+            "sentence": "Green ivy vine climbed up the sunny garden wall.",
+            "audio_path": "audio/sentences/v_vine_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_v_violin",
+        "word": "Violin",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/v_violin.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_v_violin_1",
+            "sentence": "She played a gentle melody on her wooden violin.",
+            "audio_path": "audio/sentences/v_violin_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_v_volcano",
         "word": "Volcano",
+        "grade": "Grade 3",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/v_volcano.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_v_volcano_1",
-            "sentence": "The ancient volcano rested peacefully under a blanket of clouds.",
+            "sentence": "Smoke rose gently from the summit of the ancient volcano.",
             "audio_path": "audio/sentences/v_volcano_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_v_vibrant",
+        "word": "Vibrant",
+        "grade": "Grade 4",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/v_vibrant.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_v_vibrant_1",
+            "sentence": "Vibrant autumn leaves painted the hillsides in scarlet and gold.",
+            "audio_path": "audio/sentences/v_vibrant_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_v_vindicate",
+        "word": "Vindicate",
+        "grade": "Grade 5",
+        "part_of_speech": "verb",
+        "audio_path": "audio/words/v_vindicate.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_v_vindicate_1",
+            "sentence": "New evidence surfaced in court to fully vindicate the scientist.",
+            "audio_path": "audio/sentences/v_vindicate_1.wav"
           }
         ]
       }
@@ -489,17 +2469,107 @@
     "description": "Twenty-third letter of the alphabet",
     "words": [
       {
+        "id": "word_w_web",
+        "word": "Web",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/w_web.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_w_web_1",
+            "sentence": "Morning dew drops sparkled on the spider web.",
+            "audio_path": "audio/sentences/w_web_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_w_wig",
+        "word": "Wig",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/w_wig.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_w_wig_1",
+            "sentence": "The actor wore a curly white wig for the play.",
+            "audio_path": "audio/sentences/w_wig_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_w_wind",
+        "word": "Wind",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/w_wind.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_w_wind_1",
+            "sentence": "A cool autumn wind rustled the leaves on the ground.",
+            "audio_path": "audio/sentences/w_wind_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_w_whale",
+        "word": "Whale",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/w_whale.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_w_whale_1",
+            "sentence": "A giant blue whale breached the ocean surface.",
+            "audio_path": "audio/sentences/w_whale_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_w_waterfall",
         "word": "Waterfall",
+        "grade": "Grade 3",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/w_waterfall.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_w_waterfall_1",
-            "sentence": "Cool mist rose from the roaring waterfall as it plunged into the pool.",
+            "sentence": "Cool mist sprayed from the roaring mountain waterfall.",
             "audio_path": "audio/sentences/w_waterfall_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_w_wilderness",
+        "word": "Wilderness",
+        "grade": "Grade 4",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/w_wilderness.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_w_wilderness_1",
+            "sentence": "We hiked through the untamed wilderness for three days.",
+            "audio_path": "audio/sentences/w_wilderness_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_w_whimsical",
+        "word": "Whimsical",
+        "grade": "Grade 5",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/w_whimsical.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_w_whimsical_1",
+            "sentence": "The illustrator created a whimsical world filled with flying teapots.",
+            "audio_path": "audio/sentences/w_whimsical_1.wav"
           }
         ]
       }
@@ -511,17 +2581,107 @@
     "description": "Twenty-fourth letter of the alphabet",
     "words": [
       {
+        "id": "word_x_box",
+        "word": "Box",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/x_box.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_x_box_1",
+            "sentence": "A surprise gift waited inside the cardboard box.",
+            "audio_path": "audio/sentences/x_box_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_x_fox",
+        "word": "Fox",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/x_fox.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_x_fox_1",
+            "sentence": "The quick brown fox jumped over the sleeping dog.",
+            "audio_path": "audio/sentences/x_fox_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_x_x_ray",
+        "word": "X-ray",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/x_x_ray.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_x_x_ray_1",
+            "sentence": "The doctor looked at the x-ray of my broken wrist.",
+            "audio_path": "audio/sentences/x_x_ray_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_x_xylophone",
         "word": "Xylophone",
+        "grade": "Grade 2",
         "part_of_speech": "noun",
-        "difficulty": "intermediate",
         "audio_path": "audio/words/x_xylophone.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_x_xylophone_1",
-            "sentence": "The young musician tapped a cheerful melody on the wooden xylophone.",
+            "sentence": "The child tapped cheerful notes on the wooden xylophone.",
             "audio_path": "audio/sentences/x_xylophone_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_x_xenon",
+        "word": "Xenon",
+        "grade": "Grade 3",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/x_xenon.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_x_xenon_1",
+            "sentence": "Xenon gas glows with a bright blue light in special lamps.",
+            "audio_path": "audio/sentences/x_xenon_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_x_xeriscape",
+        "word": "Xeriscape",
+        "grade": "Grade 4",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/x_xeriscape.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_x_xeriscape_1",
+            "sentence": "Our desert school planted a xeriscape garden that saves water.",
+            "audio_path": "audio/sentences/x_xeriscape_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_x_xenolith",
+        "word": "Xenolith",
+        "grade": "Grade 5",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/x_xenolith.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_x_xenolith_1",
+            "sentence": "The geologist studied a rare xenolith rock trapped inside ancient lava.",
+            "audio_path": "audio/sentences/x_xenolith_1.wav"
           }
         ]
       }
@@ -533,17 +2693,107 @@
     "description": "Twenty-fifth letter of the alphabet",
     "words": [
       {
+        "id": "word_y_yak",
+        "word": "Yak",
+        "grade": "Pre-K",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/y_yak.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_y_yak_1",
+            "sentence": "The shaggy yak grazed on cold mountain slopes.",
+            "audio_path": "audio/sentences/y_yak_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_y_yam",
+        "word": "Yam",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/y_yam.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_y_yam_1",
+            "sentence": "We baked a sweet orange yam for holiday dinner.",
+            "audio_path": "audio/sentences/y_yam_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_y_yarn",
+        "word": "Yarn",
+        "grade": "Grade 1",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/y_yarn.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_y_yarn_1",
+            "sentence": "She knit a warm scarf using soft blue yarn.",
+            "audio_path": "audio/sentences/y_yarn_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_y_yellow",
+        "word": "Yellow",
+        "grade": "Grade 2",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/y_yellow.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_y_yellow_1",
+            "sentence": "A yellow school bus stopped at the street corner.",
+            "audio_path": "audio/sentences/y_yellow_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_y_yacht",
         "word": "Yacht",
+        "grade": "Grade 3",
         "part_of_speech": "noun",
-        "difficulty": "intermediate",
         "audio_path": "audio/words/y_yacht.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_y_yacht_1",
-            "sentence": "The sleek white yacht sailed smoothly into the quiet harbor.",
+            "sentence": "A sleek white yacht glided across the calm blue harbor.",
             "audio_path": "audio/sentences/y_yacht_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_y_yield",
+        "word": "Yield",
+        "grade": "Grade 4",
+        "part_of_speech": "verb",
+        "audio_path": "audio/words/y_yield.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_y_yield_1",
+            "sentence": "Rich farmland can yield bountiful crops of wheat.",
+            "audio_path": "audio/sentences/y_yield_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_y_yearning",
+        "word": "Yearning",
+        "grade": "Grade 5",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/y_yearning.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_y_yearning_1",
+            "sentence": "After years abroad, he felt a deep yearning to return home.",
+            "audio_path": "audio/sentences/y_yearning_1.wav"
           }
         ]
       }
@@ -555,17 +2805,107 @@
     "description": "Twenty-sixth letter of the alphabet",
     "words": [
       {
+        "id": "word_z_zip",
+        "word": "Zip",
+        "grade": "Pre-K",
+        "part_of_speech": "verb",
+        "audio_path": "audio/words/z_zip.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_z_zip_1",
+            "sentence": "Zip up your warm winter coat before stepping outside!",
+            "audio_path": "audio/sentences/z_zip_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_z_zoo",
+        "word": "Zoo",
+        "grade": "Kindergarten",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/z_zoo.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_z_zoo_1",
+            "sentence": "We visited tall giraffes and monkeys at the city zoo.",
+            "audio_path": "audio/sentences/z_zoo_1.wav"
+          }
+        ]
+      },
+      {
         "id": "word_z_zebra",
         "word": "Zebra",
+        "grade": "Grade 1",
         "part_of_speech": "noun",
-        "difficulty": "beginner",
         "audio_path": "audio/words/z_zebra.wav",
         "image_path": "",
         "sentences": [
           {
             "id": "sent_z_zebra_1",
-            "sentence": "The striped zebra grazed peacefully alongside the savannah herd.",
+            "sentence": "The striped zebra trotted across the grassy savannah.",
             "audio_path": "audio/sentences/z_zebra_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_z_zigzag",
+        "word": "Zigzag",
+        "grade": "Grade 2",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/z_zigzag.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_z_zigzag_1",
+            "sentence": "The hiking trail made a sharp zigzag up the steep hill.",
+            "audio_path": "audio/sentences/z_zigzag_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_z_zephyr",
+        "word": "Zephyr",
+        "grade": "Grade 3",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/z_zephyr.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_z_zephyr_1",
+            "sentence": "A gentle zephyr cooled the afternoon heat along the shore.",
+            "audio_path": "audio/sentences/z_zephyr_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_z_zenith",
+        "word": "Zenith",
+        "grade": "Grade 4",
+        "part_of_speech": "noun",
+        "audio_path": "audio/words/z_zenith.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_z_zenith_1",
+            "sentence": "At noon, the blazing summer sun reached its daily zenith.",
+            "audio_path": "audio/sentences/z_zenith_1.wav"
+          }
+        ]
+      },
+      {
+        "id": "word_z_zealous",
+        "word": "Zealous",
+        "grade": "Grade 5",
+        "part_of_speech": "adjective",
+        "audio_path": "audio/words/z_zealous.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_z_zealous_1",
+            "sentence": "The zealous volunteers planted hundreds of trees in a single weekend.",
+            "audio_path": "audio/sentences/z_zealous_1.wav"
           }
         ]
       }

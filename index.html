@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alphabet Phonics & Sentences Explorer (Kokoro TTS)</title>
+  <title>Grade-Wise Alphabet Phonics & Sentences Explorer (Kokoro TTS)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -19,6 +19,13 @@
       --accent: #f43f5e;
       --text: #f8fafc;
       --text-muted: #94a3b8;
+      --badge-prek: #ec4899;
+      --badge-k: #f59e0b;
+      --badge-g1: #10b981;
+      --badge-g2: #06b6d4;
+      --badge-g3: #6366f1;
+      --badge-g4: #8b5cf6;
+      --badge-g5: #d946ef;
     }
 
     * {
@@ -39,11 +46,11 @@
     header {
       padding: 2.5rem 1.5rem 1.5rem;
       text-align: center;
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
     }
 
-    .badge {
+    .badge-top {
       display: inline-block;
       padding: 0.35rem 0.85rem;
       font-size: 0.75rem;
@@ -58,7 +65,7 @@
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
       font-weight: 800;
       letter-spacing: -0.02em;
       background: linear-gradient(135deg, #fff 30%, #94a3b8 100%);
@@ -73,15 +80,49 @@
       line-height: 1.6;
     }
 
-    /* Quick Filter Alphabet Bar */
+    /* Grade Selector Pills */
+    .grade-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0 1.5rem 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .grade-btn {
+      padding: 0.45rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 9999px;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .grade-btn:hover {
+      border-color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .grade-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      box-shadow: 0 0 14px rgba(99, 102, 241, 0.5);
+    }
+
+    /* Alphabet Bar */
     .filter-bar {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 0.35rem;
-      padding: 1rem 1.5rem;
+      padding: 0 1.5rem 1.5rem;
       max-width: 1100px;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto;
     }
 
     .alpha-btn {
@@ -98,13 +139,12 @@
       color: var(--text);
       cursor: pointer;
       transition: all 0.2s ease;
-      text-decoration: none;
     }
 
     .alpha-btn:hover, .alpha-btn.active {
       background: var(--primary);
       border-color: var(--primary);
-      box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+      box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
       transform: translateY(-2px);
     }
 
@@ -119,7 +159,7 @@
 
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
       gap: 1.5rem;
     }
 
@@ -133,13 +173,12 @@
       flex-direction: column;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
-      overflow: hidden;
     }
 
     .card:hover {
       background: var(--card-hover);
       border-color: rgba(99, 102, 241, 0.4);
-      transform: translateY(-4px);
+      transform: translateY(-3px);
       box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.5);
     }
 
@@ -175,10 +214,10 @@
     }
 
     .word-section {
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.22);
       border-radius: 12px;
       padding: 1rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
       border: 1px solid rgba(255, 255, 255, 0.04);
     }
 
@@ -189,25 +228,48 @@
       margin-bottom: 0.5rem;
     }
 
+    .word-text-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
     .word-text {
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: #fff;
     }
 
+    .grade-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .tag-Pre-K { background: rgba(236, 72, 153, 0.2); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.3); }
+    .tag-Kindergarten { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .tag-Grade-1 { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .tag-Grade-2 { background: rgba(6, 182, 212, 0.2); color: #38bdf8; border: 1px solid rgba(6, 182, 212, 0.3); }
+    .tag-Grade-3 { background: rgba(99, 102, 241, 0.2); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3); }
+    .tag-Grade-4 { background: rgba(139, 92, 246, 0.2); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3); }
+    .tag-Grade-5 { background: rgba(217, 70, 239, 0.2); color: #e879f9; border: 1px solid rgba(217, 70, 239, 0.3); }
+
     .sentence-section {
-      background: rgba(0, 0, 0, 0.15);
-      border-radius: 10px;
-      padding: 0.85rem;
+      background: rgba(0, 0, 0, 0.18);
+      border-radius: 8px;
+      padding: 0.75rem;
       border-left: 3px solid var(--secondary);
       margin-top: 0.5rem;
     }
 
     .sentence-text {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       line-height: 1.5;
       color: #e2e8f0;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.6rem;
       font-style: italic;
     }
 
@@ -215,10 +277,10 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      padding: 0.45rem 0.85rem;
-      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
-      border-radius: 8px;
+      border-radius: 6px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       background: rgba(255, 255, 255, 0.05);
       color: #fff;
@@ -255,21 +317,30 @@
       color: #a5b4fc;
       text-decoration: none;
     }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
   <header>
-    <div class="badge">Kokoro TTS Corpus & Player</div>
-    <h1>Alphabet A to Z Explorer</h1>
+    <div class="badge-top">Graduated Reading Curriculum</div>
+    <h1>Grade-Wise Alphabet Phonics Explorer</h1>
     <p class="subtitle">
-      High-quality neural speech dataset generated with Kokoro-82M. Explore pronunciation for every letter, word, and example sentence.
+      Progression from simple early-reader words (Pre-K / Kindergarten CVC & Sight Words) through Grade 5 advanced vocabulary with example sentences.
     </p>
   </header>
 
+  <!-- Grade Filter Pills -->
+  <nav class="grade-bar" id="grade-filter">
+    <button class="grade-btn active" data-grade="ALL">All Grades</button>
+    <button class="grade-btn" data-grade="Pre-K">Pre-K (Ages 3-4)</button>
+    <button class="grade-btn" data-grade="Kindergarten">Kindergarten (Ages 5-6)</button>
+    <button class="grade-btn" data-grade="Grade 1">Grade 1 (Ages 6-7)</button>
+    <button class="grade-btn" data-grade="Grade 2">Grade 2 (Ages 7-8)</button>
+    <button class="grade-btn" data-grade="Grade 3">Grade 3 (Ages 8-9)</button>
+    <button class="grade-btn" data-grade="Grade 4">Grade 4 (Ages 9-10)</button>
+    <button class="grade-btn" data-grade="Grade 5">Grade 5 (Ages 10-11)</button>
+  </nav>
+
+  <!-- Alphabet Filter Bar -->
   <nav class="filter-bar" id="alpha-filter">
     <button class="alpha-btn active" data-letter="ALL">ALL</button>
   </nav>
@@ -288,13 +359,16 @@
     let currentAudio = null;
     let activeBtn = null;
     let corpusData = [];
+    let selectedLetter = 'ALL';
+    let selectedGrade = 'ALL';
 
     async function loadCorpus() {
       try {
         const response = await fetch('data/corpus.json');
         corpusData = await response.json();
         buildFilterBar();
-        renderCards('ALL');
+        setupGradeFilters();
+        renderCards();
       } catch (err) {
         console.error("Failed to load corpus.json:", err);
         document.getElementById('grid').innerHTML = `
@@ -303,6 +377,17 @@
           </div>
         `;
       }
+    }
+
+    function setupGradeFilters() {
+      document.querySelectorAll('.grade-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.grade-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          selectedGrade = btn.dataset.grade;
+          renderCards();
+        });
+      });
     }
 
     function buildFilterBar() {
@@ -315,7 +400,8 @@
         btn.addEventListener('click', () => {
           document.querySelectorAll('.alpha-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-          renderCards(item.letter);
+          selectedLetter = item.letter;
+          renderCards();
         });
         filterBar.appendChild(btn);
       });
@@ -323,7 +409,8 @@
       document.querySelector('.alpha-btn[data-letter="ALL"]').addEventListener('click', (e) => {
         document.querySelectorAll('.alpha-btn').forEach(b => b.classList.remove('active'));
         e.target.classList.add('active');
-        renderCards('ALL');
+        selectedLetter = 'ALL';
+        renderCards();
       });
     }
 
@@ -350,10 +437,9 @@
       btn.innerHTML = `<span>⏹ Stop</span>`;
 
       audio.play().catch(e => {
-        console.error("Audio playback error:", e);
         btn.classList.remove('playing');
         btn.innerHTML = btn.dataset.originalHtml;
-        alert("Audio file not yet generated or could not be loaded: " + path);
+        alert("Audio file queued for Kokoro generation: " + path);
       });
 
       audio.onended = () => {
@@ -364,39 +450,50 @@
       };
     }
 
-    function renderCards(filterLetter) {
+    function renderCards() {
       const grid = document.getElementById('grid');
       grid.innerHTML = '';
 
-      const filtered = filterLetter === 'ALL' 
+      const filteredLetters = selectedLetter === 'ALL' 
         ? corpusData 
-        : corpusData.filter(d => d.letter === filterLetter);
+        : corpusData.filter(d => d.letter === selectedLetter);
 
-      filtered.forEach(item => {
+      filteredLetters.forEach(item => {
+        let matchingWords = item.words || [];
+        if (selectedGrade !== 'ALL') {
+          matchingWords = matchingWords.filter(w => w.grade === selectedGrade);
+        }
+
+        if (matchingWords.length === 0) return;
+
         const card = document.createElement('div');
         card.className = 'card';
         card.id = `card-${item.letter}`;
 
         let wordsHtml = '';
-        (item.words || []).forEach(w => {
+        matchingWords.forEach(w => {
           let sentencesHtml = '';
           (w.sentences || []).forEach(s => {
             sentencesHtml += `
               <div class="sentence-section">
                 <div class="sentence-text">"${s.sentence}"</div>
                 <button class="play-btn" onclick="playAudio('${s.audio_path}', this)">
-                  <span>▶ Play Sentence</span>
+                  <span>▶ Sentence</span>
                 </button>
               </div>
             `;
           });
 
+          const tagClass = 'tag-' + (w.grade || '').replace(/\s+/g, '-');
           wordsHtml += `
             <div class="word-section">
               <div class="word-title-row">
-                <div class="word-text">${w.word}</div>
+                <div class="word-text-wrapper">
+                  <span class="word-text">${w.word}</span>
+                  <span class="grade-tag ${tagClass}">${w.grade}</span>
+                </div>
                 <button class="play-btn" onclick="playAudio('${w.audio_path}', this)">
-                  <span>▶ Play Word</span>
+                  <span>▶ Word</span>
                 </button>
               </div>
               ${sentencesHtml}

@@ -1,6 +1,45 @@
-# Alphabet Phonics & Sentences Corpus (Kokoro TTS)
+# Alphabet Phonics & Sentences Corpus (Grade-Wise Phonics)
 
-An extensible, structured corpus of A to Z alphabet words, phonetics, and sentences paired with high-quality neural speech audio generated using [Kokoro TTS](https://github.com/hexgrad/kokoro) (`af_heart` voice).
+An extensible, structured corpus of A to Z alphabet words, phonetics, and sentences graduated from **Pre-K foundational phonics** up to **Grade 5 advanced vocabulary**, paired with neural speech audio capabilities via [Kokoro TTS](https://github.com/hexgrad/kokoro).
+
+---
+
+## 📚 Grade-Wise Curriculum Progression
+
+Every letter from **A to Z** has words and contextual sentences classified across 7 educational reading stages (total **182 words** and **182 sentences**):
+
+| Grade Level | Target Ages | Phonics & Vocabulary Focus | Example Words |
+| :--- | :---: | :--- | :--- |
+| **Pre-K** | Ages 3–4 | 3-letter CVC words, short vowels, foundational phonemes | *Ant, Bat, Cat, Dog, Egg, Fox, Sun* |
+| **Kindergarten** | Ages 5–6 | Early sight words, basic vowel families, everyday objects | *Apple, Ball, Cup, Duck, Fish, Sock* |
+| **Grade 1** | Ages 6–7 | Consonant blends, digraphs, high-frequency sight words | *Acorn, Bird, Cloud, Drum, Frog, Star* |
+| **Grade 2** | Ages 7–8 | Multi-syllable basics, compound words, descriptive story words | *Anchor, Castle, Dragon, Feather, Rocket* |
+| **Grade 3** | Ages 8–9 | Descriptive adjectives, nature, inquiry, and community | *Astronaut, Compass, Dolphin, Glacier, Rainbow* |
+| **Grade 4** | Ages 9–10 | Academic, scientific, and sensory literature vocabulary | *Altitude, Curiosity, Ecosystem, Nebula, Quasar* |
+| **Grade 5** | Ages 10–11 | Abstract thinking, nuance, and advanced expressive concepts | *Abundance, Benevolent, Diligent, Eloquent, Resilient* |
+
+---
+
+## 📁 Repository Structure
+
+```
+.
+├── index.html                   # Interactive player with Grade and Letter filtering
+├── data/
+│   ├── corpus.json              # 182 words & 182 sentences with grade metadata
+│   └── alphabet_corpus.db       # SQLite database with normalized `grades`, `letters`, `words`, `sentences`
+├── audio/
+│   ├── words/                   # Synthesized audio files
+│   └── sentences/               # Synthesized sentence audio files
+├── scripts/
+│   ├── build_grade_corpus.py    # Generates the grade-wise JSON corpus
+│   ├── init_db.py               # SQLite schema & JSON-to-SQLite sync tool
+│   ├── generate_all_audio.py    # Kokoro TTS batch synthesis pipeline
+│   └── generate_bark_narration.py # Suno Bark expressive story generation
+├── devbox.json                  # Devbox environment configuration
+├── requirements.txt             # Python dependencies
+└── README.md
+```
 
 Includes:
 - **Relational database & schema**: SQLite database (`data/alphabet_corpus.db`) supporting 1-to-many relationships (multiple words per letter, multiple sentences per word, media mappings for audio and images).
