@@ -2,17 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phonics Audio Player | Kokoro TTS Neural Speech</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Phonics Audio Player | Kokoro TTS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #090d16;
-      --card-bg: rgba(18, 25, 42, 0.85);
+      --bg: #070a12;
+      --card-bg: rgba(17, 24, 39, 0.85);
       --card-border: rgba(255, 255, 255, 0.08);
-      --card-hover: rgba(26, 36, 60, 0.95);
       --primary: #6366f1;
       --primary-hover: #4f46e5;
       --primary-glow: rgba(99, 102, 241, 0.35);
@@ -21,7 +20,7 @@
       --text: #f8fafc;
       --text-muted: #94a3b8;
       --text-dim: #64748b;
-      --surface: rgba(15, 23, 42, 0.7);
+      --surface: rgba(15, 23, 42, 0.8);
       --surface-border: rgba(255, 255, 255, 0.1);
     }
 
@@ -29,324 +28,281 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background: radial-gradient(circle at top, #1e1b4b 0%, #0d1222 45%, var(--bg) 85%);
+      background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, var(--bg) 70%);
       color: var(--text);
-      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      padding: 0.75rem 1rem env(safe-area-inset-bottom, 0.75rem);
+      overflow-x: hidden;
+    }
+
+    /* Ultra-compact top navigation header */
+    .top-bar {
+      display: flex;
       align-items: center;
-      padding: 2rem 1.5rem;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto 0.75rem;
+      padding: 0 0.25rem;
     }
 
-    header {
-      text-align: center;
-      max-width: 640px;
-      margin-bottom: 2rem;
-    }
-
-    .badge-top {
-      display: inline-flex;
+    .brand-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      display: flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.35rem 0.9rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      background: rgba(99, 102, 241, 0.15);
-      border: 1px solid rgba(99, 102, 241, 0.35);
-      color: #a5b4fc;
-      border-radius: 9999px;
-      margin-bottom: 0.85rem;
+      gap: 0.4rem;
+      color: #fff;
     }
 
-    .badge-top .dot {
-      width: 7px;
-      height: 7px;
+    .brand-dot {
+      width: 6px;
+      height: 6px;
       background: #10b981;
       border-radius: 50%;
-      box-shadow: 0 0 8px #10b981;
+      box-shadow: 0 0 6px #10b981;
     }
 
-    h1 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
-    }
-
-    p.subtitle {
+    .brand-sub {
+      font-size: 0.68rem;
+      font-weight: 600;
       color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
     }
 
     /* Player Container */
-    .player-wrapper {
+    .player-container {
       width: 100%;
-      max-width: 580px;
+      max-width: 480px;
       margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: center;
+      gap: 0.75rem;
     }
 
-    /* Selectors Header (Stylized Dropdowns) */
+    /* Inline Selectors Row */
     .selectors-row {
       display: grid;
       grid-template-columns: 1fr 1.6fr;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
+      gap: 0.5rem;
+      width: 100%;
     }
 
     .select-box {
       position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .select-box label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
     }
 
     .custom-select-trigger {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.8rem 1rem;
+      padding: 0.6rem 0.85rem;
       background: var(--surface);
       border: 1px solid var(--surface-border);
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.95rem;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
       color: var(--text);
-      backdrop-filter: blur(10px);
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
       user-select: none;
+      transition: all 0.2s ease;
     }
 
-    .custom-select-trigger:hover {
-      border-color: rgba(99, 102, 241, 0.5);
-      background: rgba(30, 41, 69, 0.8);
-      transform: translateY(-1px);
-    }
-
-    .custom-select-trigger.active {
+    .custom-select-trigger:active, .custom-select-trigger.active {
       border-color: var(--primary);
-      box-shadow: 0 0 16px var(--primary-glow);
+      box-shadow: 0 0 10px var(--primary-glow);
     }
 
     .custom-select-trigger .arrow {
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       color: var(--text-muted);
-      transition: transform 0.2s ease;
+      transition: transform 0.2s;
     }
 
     .custom-select-trigger.active .arrow {
       transform: rotate(180deg);
     }
 
-    /* Dropdown Options List */
+    /* Custom Dropdown Menus */
     .custom-options {
       position: absolute;
-      top: calc(100% + 6px);
+      top: calc(100% + 5px);
       left: 0;
       right: 0;
       background: #111827;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 12px;
-      max-height: 250px;
+      max-height: 230px;
       overflow-y: auto;
       z-index: 100;
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.7);
       display: none;
-      backdrop-filter: blur(16px);
-      padding: 0.35rem;
+      padding: 0.3rem;
     }
 
     .custom-options.show {
       display: block;
-      animation: dropdownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    @keyframes dropdownFade {
-      from { opacity: 0; transform: translateY(-6px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .custom-option {
-      padding: 0.65rem 0.85rem;
-      font-size: 0.88rem;
+      padding: 0.55rem 0.75rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      border-radius: 8px;
+      border-radius: 6px;
       cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.15s ease;
       color: #cbd5e1;
     }
 
-    .custom-option:hover {
-      background: rgba(99, 102, 241, 0.2);
-      color: #ffffff;
+    .custom-option:hover, .custom-option:active {
+      background: rgba(99, 102, 241, 0.25);
+      color: #fff;
     }
 
     .custom-option.selected {
       background: var(--primary);
-      color: #ffffff;
+      color: #fff;
       font-weight: 700;
     }
 
-    /* Scrollbar for options */
-    .custom-options::-webkit-scrollbar {
-      width: 6px;
-    }
-    .custom-options::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 4px;
-    }
-
-    /* The Main Showcase Deck Player */
+    /* The Main Showcase Deck */
     .deck-card {
       background: var(--card-bg);
-      backdrop-filter: blur(20px);
+      backdrop-filter: blur(16px);
       border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 2.25rem 2rem;
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
-      position: relative;
-      overflow: hidden;
+      border-radius: 20px;
+      padding: 1.25rem 1.15rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      transition: transform 0.3s ease;
+      box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.6);
+      position: relative;
     }
 
-    .deck-glow {
-      position: absolute;
-      top: -60px;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-      opacity: 0.2;
-      pointer-events: none;
-      filter: blur(30px);
+    /* Compact Letter & Phonetic Row */
+    .letter-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
     }
 
-    /* Letter Display Avatar */
     .letter-display {
-      width: 5.5rem;
-      height: 5.5rem;
-      border-radius: 20px;
+      width: 3.75rem;
+      height: 3.75rem;
+      border-radius: 14px;
       background: linear-gradient(135deg, var(--primary) 0%, #a855f7 100%);
       color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
+      font-size: 2.2rem;
       font-weight: 800;
-      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
-      margin-bottom: 1rem;
-      position: relative;
+      box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
       user-select: none;
+    }
+
+    .letter-info {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
     }
 
     .phonetic-tag {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       color: var(--secondary);
       background: rgba(6, 182, 212, 0.1);
       border: 1px solid rgba(6, 182, 212, 0.25);
-      padding: 0.2rem 0.65rem;
-      border-radius: 6px;
-      margin-bottom: 1.25rem;
-    }
-
-    /* Word Title */
-    .word-title {
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.35rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      display: inline-block;
+      width: fit-content;
     }
 
     .meta-pills {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1.75rem;
+      gap: 0.35rem;
     }
 
     .meta-pill {
-      font-size: 0.72rem;
+      font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 0.25rem 0.6rem;
-      border-radius: 9999px;
+      padding: 0.15rem 0.45rem;
+      border-radius: 4px;
       background: rgba(255, 255, 255, 0.06);
-      color: #cbd5e1;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
     }
 
     .grade-badge-glow {
       background: rgba(99, 102, 241, 0.15);
       color: #a5b4fc;
-      border-color: rgba(99, 102, 241, 0.3);
+      border: 1px solid rgba(99, 102, 241, 0.3);
     }
 
-    /* Sentence Box */
+    /* Word Title */
+    .word-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      margin: 0.2rem 0 0.5rem;
+    }
+
+    /* Sentence Card */
     .sentence-card {
       width: 100%;
-      background: rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.06);
-      border-left: 4px solid var(--secondary);
-      border-radius: 14px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 2rem;
+      border-left: 3px solid var(--secondary);
+      border-radius: 12px;
+      padding: 0.75rem 0.9rem;
+      margin-bottom: 0.85rem;
       text-align: left;
     }
 
     .sentence-card-label {
-      font-size: 0.72rem;
+      font-size: 0.65rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--secondary);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.25rem;
     }
 
     .sentence-card-text {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       font-weight: 500;
-      line-height: 1.55;
+      line-height: 1.45;
       color: #f1f5f9;
       font-style: italic;
     }
 
-    /* Playback Visualizer Bar */
+    /* Visualizer Bar */
     .waveform-bar {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 4px;
-      height: 24px;
-      margin-bottom: 1.5rem;
+      gap: 3px;
+      height: 18px;
+      margin-bottom: 0.75rem;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.2s ease;
     }
 
     .waveform-bar.active {
@@ -354,40 +310,39 @@
     }
 
     .wave-stick {
-      width: 4px;
+      width: 3px;
       background: var(--primary);
-      border-radius: 4px;
-      animation: wavePulse 1s ease-in-out infinite;
+      border-radius: 3px;
+      animation: wavePulse 0.9s ease-in-out infinite;
     }
 
-    .wave-stick:nth-child(1) { height: 8px; animation-delay: 0.1s; }
-    .wave-stick:nth-child(2) { height: 16px; animation-delay: 0.25s; }
-    .wave-stick:nth-child(3) { height: 24px; animation-delay: 0.4s; }
-    .wave-stick:nth-child(4) { height: 14px; animation-delay: 0.15s; }
-    .wave-stick:nth-child(5) { height: 20px; animation-delay: 0.3s; }
-    .wave-stick:nth-child(6) { height: 10px; animation-delay: 0.2s; }
-    .wave-stick:nth-child(7) { height: 18px; animation-delay: 0.35s; }
+    .wave-stick:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+    .wave-stick:nth-child(2) { height: 12px; animation-delay: 0.25s; }
+    .wave-stick:nth-child(3) { height: 18px; animation-delay: 0.4s; }
+    .wave-stick:nth-child(4) { height: 10px; animation-delay: 0.15s; }
+    .wave-stick:nth-child(5) { height: 16px; animation-delay: 0.3s; }
+    .wave-stick:nth-child(6) { height: 8px; animation-delay: 0.2s; }
+    .wave-stick:nth-child(7) { height: 14px; animation-delay: 0.35s; }
 
     @keyframes wavePulse {
-      0%, 100% { transform: scaleY(0.4); opacity: 0.5; }
+      0%, 100% { transform: scaleY(0.4); opacity: 0.4; }
       50% { transform: scaleY(1); opacity: 1; }
     }
 
-    /* Actions Controls */
+    /* Action Buttons (Large Touch Target for Mobile) */
     .player-controls {
       display: flex;
-      gap: 1rem;
+      gap: 0.6rem;
       width: 100%;
-      justify-content: center;
     }
 
     .action-btn {
       flex: 1;
-      max-width: 220px;
-      padding: 0.9rem 1.25rem;
-      font-size: 0.92rem;
+      min-height: 48px;
+      padding: 0.65rem 0.5rem;
+      font-size: 0.88rem;
       font-weight: 700;
-      border-radius: 14px;
+      border-radius: 12px;
       border: 1px solid var(--surface-border);
       background: var(--surface);
       color: #ffffff;
@@ -395,164 +350,141 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      gap: 0.4rem;
+      transition: all 0.15s ease;
+      touch-action: manipulation;
     }
 
-    .action-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
+    .action-btn:active {
+      transform: scale(0.97);
     }
 
     .action-btn.btn-primary {
       background: linear-gradient(135deg, var(--primary) 0%, #4f46e5 100%);
       border-color: transparent;
-      box-shadow: 0 4px 16px var(--primary-glow);
-    }
-
-    .action-btn.btn-primary:hover {
-      background: linear-gradient(135deg, #7073f3 0%, #4338ca 100%);
-      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+      box-shadow: 0 4px 12px var(--primary-glow);
     }
 
     .action-btn.playing {
       background: linear-gradient(135deg, var(--accent) 0%, #e11d48 100%) !important;
       border-color: transparent;
-      animation: pulseBtn 1.5s infinite;
+      box-shadow: 0 0 16px rgba(244, 63, 94, 0.5);
     }
 
-    @keyframes pulseBtn {
-      0%, 100% { box-shadow: 0 0 16px rgba(244, 63, 94, 0.4); }
-      50% { box-shadow: 0 0 26px rgba(244, 63, 94, 0.7); }
-    }
-
-    /* Bottom Quick Navigation Arrow Buttons */
+    /* Swipe / Touch Navigation Bar */
     .deck-nav-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      margin-top: 1.5rem;
-      padding: 0 0.5rem;
+      margin-top: 0.6rem;
+      padding: 0 0.25rem;
     }
 
     .nav-arrow-btn {
-      background: transparent;
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--card-border);
-      color: var(--text-muted);
-      border-radius: 10px;
-      padding: 0.5rem 1rem;
-      font-size: 0.85rem;
-      font-weight: 600;
+      color: var(--text);
+      border-radius: 8px;
+      padding: 0.45rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 700;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
-      transition: all 0.2s ease;
+      gap: 0.3rem;
+      min-height: 38px;
     }
 
-    .nav-arrow-btn:hover:not(:disabled) {
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.2);
+    .nav-arrow-btn:active:not(:disabled) {
+      background: rgba(255, 255, 255, 0.1);
     }
 
     .nav-arrow-btn:disabled {
-      opacity: 0.3;
+      opacity: 0.25;
       cursor: not-allowed;
     }
 
     .index-indicator {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: var(--text-dim);
       font-weight: 600;
     }
 
+    /* Minimal footer */
     footer {
-      margin-top: auto;
-      padding-top: 3rem;
       text-align: center;
-      font-size: 0.85rem;
+      font-size: 0.72rem;
       color: var(--text-dim);
+      padding: 0.5rem 0 0;
     }
 
     footer a {
       color: #a5b4fc;
       text-decoration: none;
     }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="badge-top">
-      <span class="dot"></span>
-      <span>Kokoro-82M TTS Audio Player</span>
+  <!-- Minimal Top Header -->
+  <header class="top-bar">
+    <div class="brand-title">
+      <span class="brand-dot"></span>
+      <span>Phonics Player</span>
     </div>
-    <h1>Phonics & Words Explorer</h1>
-    <p class="subtitle">Select a letter and reading level to play isolated neural speech words and contextual example sentences.</p>
+    <span class="brand-sub">Kokoro-82M TTS</span>
   </header>
 
-  <div class="player-wrapper">
-    <!-- Stylized Dropdowns -->
+  <!-- Main Mobile App Layout -->
+  <main class="player-container">
+
+    <!-- Compact Dropdowns Row -->
     <div class="selectors-row">
-      <!-- Alphabet Dropdown -->
+      <!-- Letter Select -->
       <div class="select-box" id="letter-select-box">
-        <label>Alphabet</label>
         <div class="custom-select-trigger" id="letter-trigger">
           <span id="selected-letter-label">A</span>
           <span class="arrow">▼</span>
         </div>
-        <div class="custom-options" id="letter-options">
-          <!-- Populated by JS -->
-        </div>
+        <div class="custom-options" id="letter-options"></div>
       </div>
 
-      <!-- Grade Dropdown -->
+      <!-- Grade Select -->
       <div class="select-box" id="grade-select-box">
-        <label>Grade Level</label>
         <div class="custom-select-trigger" id="grade-trigger">
-          <span id="selected-grade-label">Pre-K (Ages 3-4)</span>
+          <span id="selected-grade-label">Pre-K</span>
           <span class="arrow">▼</span>
         </div>
-        <div class="custom-options" id="grade-options">
-          <!-- Populated by JS -->
-        </div>
+        <div class="custom-options" id="grade-options"></div>
       </div>
     </div>
 
-    <!-- Main Single Player Deck Card -->
-    <div class="deck-card">
-      <div class="deck-glow"></div>
+    <!-- The Single Player Deck Card -->
+    <section class="deck-card" id="deck-card">
 
-      <!-- Letter Display -->
-      <div class="letter-display" id="deck-letter">A</div>
-
-      <!-- Phonetic Tag -->
-      <div class="phonetic-tag" id="deck-phonetic">/eɪ/ or /æ/</div>
-
-      <!-- Word Display -->
-      <div class="word-title" id="deck-word">Ant</div>
-
-      <!-- Meta info (Part of Speech, Grade) -->
-      <div class="meta-pills">
-        <span class="meta-pill" id="deck-pos">Noun</span>
-        <span class="meta-pill grade-badge-glow" id="deck-grade">Pre-K</span>
+      <!-- Compact Letter & Metadata Header -->
+      <div class="letter-row">
+        <div class="letter-display" id="deck-letter">A</div>
+        <div class="letter-info">
+          <div class="phonetic-tag" id="deck-phonetic">/eɪ/ or /æ/</div>
+          <div class="meta-pills">
+            <span class="meta-pill" id="deck-pos">Noun</span>
+            <span class="meta-pill grade-badge-glow" id="deck-grade">Pre-K</span>
+          </div>
+        </div>
       </div>
+
+      <!-- Word Title -->
+      <div class="word-title" id="deck-word">Ant</div>
 
       <!-- Contextual Sentence Box -->
       <div class="sentence-card">
-        <div class="sentence-card-label">Example Sentence</div>
+        <div class="sentence-card-label">Sentence</div>
         <div class="sentence-card-text" id="deck-sentence">"A tiny ant crawls on the leaf."</div>
       </div>
 
-      <!-- Animated Audio Waveform -->
+      <!-- Waveform Animation -->
       <div class="waveform-bar" id="waveform">
         <div class="wave-stick"></div>
         <div class="wave-stick"></div>
@@ -563,33 +495,34 @@
         <div class="wave-stick"></div>
       </div>
 
-      <!-- Audio Action Buttons -->
+      <!-- Playback Actions (Min 48px touch targets) -->
       <div class="player-controls">
         <button class="action-btn btn-primary" id="play-word-btn" onclick="playCurrentWord()">
           <span id="word-btn-icon">▶</span>
-          <span id="word-btn-label">Play Word</span>
+          <span id="word-btn-label">Word</span>
         </button>
         <button class="action-btn" id="play-sentence-btn" onclick="playCurrentSentence()">
           <span id="sent-btn-icon">▶</span>
-          <span id="sent-btn-label">Play Sentence</span>
+          <span id="sent-btn-label">Sentence</span>
         </button>
       </div>
 
-      <!-- Navigation Arrows (Previous/Next Alphabet) -->
+      <!-- Bottom Nav Arrow Controls -->
       <div class="deck-nav-bar">
         <button class="nav-arrow-btn" id="prev-btn" onclick="navAlphabet(-1)">
-          <span>←</span> Previous
+          <span>←</span> Prev
         </button>
-        <span class="index-indicator" id="index-indicator">Letter 1 of 26</span>
+        <span class="index-indicator" id="index-indicator">1 of 26</span>
         <button class="nav-arrow-btn" id="next-btn" onclick="navAlphabet(1)">
           Next <span>→</span>
         </button>
       </div>
-    </div>
-  </div>
+    </section>
+
+  </main>
 
   <footer>
-    <p>Powered by <a href="https://github.com/hexgrad/kokoro" target="_blank">Kokoro TTS</a> | Open Source Phonics Dataset</p>
+    <p>Powered by <a href="https://github.com/hexgrad/kokoro" target="_blank">Kokoro TTS</a> | Open Phonics Corpus</p>
   </footer>
 
   <script>
@@ -607,13 +540,14 @@
     let currentLetterIndex = 0;
     let selectedGradeId = "Pre-K";
     let currentAudio = null;
-    let activePlayingType = null; // 'word' or 'sentence'
+    let activePlayingType = null;
 
     async function init() {
       try {
         const resp = await fetch('data/corpus.json');
         corpusData = await resp.json();
         setupDropdowns();
+        setupGestures();
         updateDeck();
       } catch (e) {
         console.error("Failed to load corpus data:", e);
@@ -621,14 +555,14 @@
     }
 
     function setupDropdowns() {
-      // 1. Setup Letter Options
+      // 1. Letters Dropdown
       const letterOpts = document.getElementById('letter-options');
       letterOpts.innerHTML = '';
       corpusData.forEach((item, idx) => {
         const opt = document.createElement('div');
         opt.className = `custom-option ${idx === currentLetterIndex ? 'selected' : ''}`;
         opt.dataset.index = idx;
-        opt.textContent = `${item.letter} (${item.words[0]?.word || ''})`;
+        opt.textContent = `${item.letter} — ${item.words[0]?.word || ''}`;
         opt.onclick = () => {
           currentLetterIndex = idx;
           document.getElementById('selected-letter-label').textContent = item.letter;
@@ -639,7 +573,7 @@
         letterOpts.appendChild(opt);
       });
 
-      // 2. Setup Grade Options
+      // 2. Grades Dropdown
       const gradeOpts = document.getElementById('grade-options');
       gradeOpts.innerHTML = '';
       GRADES.forEach(g => {
@@ -649,7 +583,7 @@
         opt.textContent = g.label;
         opt.onclick = () => {
           selectedGradeId = g.id;
-          document.getElementById('selected-grade-label').textContent = g.label;
+          document.getElementById('selected-grade-label').textContent = g.id;
           closeAllDropdowns();
           updateDeck();
           highlightSelectedOption('grade-options', g.id);
@@ -657,7 +591,7 @@
         gradeOpts.appendChild(opt);
       });
 
-      // Trigger Listeners
+      // Trigger buttons
       const letterTrigger = document.getElementById('letter-trigger');
       const gradeTrigger = document.getElementById('grade-trigger');
 
@@ -705,7 +639,6 @@
       const letterData = corpusData[currentLetterIndex];
       if (!letterData) return null;
 
-      // Find word matching selected grade
       let wordEntry = (letterData.words || []).find(w => w.grade === selectedGradeId);
       if (!wordEntry && letterData.words.length) {
         wordEntry = letterData.words[0];
@@ -734,9 +667,10 @@
       document.getElementById('deck-word').textContent = entry.word;
       document.getElementById('deck-pos').textContent = entry.pos;
       document.getElementById('deck-grade').textContent = entry.grade;
+      document.getElementById('selected-grade-label').textContent = entry.grade;
       document.getElementById('deck-sentence').textContent = `"${entry.sentence}"`;
 
-      document.getElementById('index-indicator').textContent = `Letter ${currentLetterIndex + 1} of ${corpusData.length}`;
+      document.getElementById('index-indicator').textContent = `${currentLetterIndex + 1} of ${corpusData.length}`;
       document.getElementById('prev-btn').disabled = (currentLetterIndex === 0);
       document.getElementById('next-btn').disabled = (currentLetterIndex === corpusData.length - 1);
 
@@ -763,12 +697,12 @@
       const wordBtn = document.getElementById('play-word-btn');
       wordBtn.classList.remove('playing');
       document.getElementById('word-btn-icon').textContent = '▶';
-      document.getElementById('word-btn-label').textContent = 'Play Word';
+      document.getElementById('word-btn-label').textContent = 'Word';
 
       const sentBtn = document.getElementById('play-sentence-btn');
       sentBtn.classList.remove('playing');
       document.getElementById('sent-btn-icon').textContent = '▶';
-      document.getElementById('sent-btn-label').textContent = 'Play Sentence';
+      document.getElementById('sent-btn-label').textContent = 'Sentence';
     }
 
     function playAudio(path, type) {
@@ -796,7 +730,7 @@
       }
 
       currentAudio.play().catch(e => {
-        console.error("Audio playback error:", e);
+        console.error("Audio error:", e);
         stopAudio();
       });
 
@@ -807,26 +741,46 @@
 
     function playCurrentWord() {
       const entry = getCurrentEntry();
-      if (entry && entry.wordAudio) {
-        playAudio(entry.wordAudio, 'word');
-      }
+      if (entry?.wordAudio) playAudio(entry.wordAudio, 'word');
     }
 
     function playCurrentSentence() {
       const entry = getCurrentEntry();
-      if (entry && entry.sentAudio) {
-        playAudio(entry.sentAudio, 'sentence');
+      if (entry?.sentAudio) playAudio(entry.sentAudio, 'sentence');
+    }
+
+    // Swipe Gesture Support for Mobile
+    function setupGestures() {
+      const card = document.getElementById('deck-card');
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      card.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      card.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }, { passive: true });
+
+      function handleSwipe() {
+        const swipeDistance = touchEndX - touchStartX;
+        if (Math.abs(swipeDistance) > 45) {
+          if (swipeDistance < 0) {
+            navAlphabet(1); // Swipe Left -> Next
+          } else {
+            navAlphabet(-1); // Swipe Right -> Prev
+          }
+        }
       }
     }
 
-    // Keyboard navigation (Left / Right arrow keys for letters, Space for audio)
+    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-      if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
-      if (e.key === 'ArrowLeft') {
-        navAlphabet(-1);
-      } else if (e.key === 'ArrowRight') {
-        navAlphabet(1);
-      } else if (e.key === ' ' || e.code === 'Space') {
+      if (e.key === 'ArrowLeft') navAlphabet(-1);
+      else if (e.key === 'ArrowRight') navAlphabet(1);
+      else if (e.key === ' ' || e.code === 'Space') {
         e.preventDefault();
         playCurrentWord();
       }
