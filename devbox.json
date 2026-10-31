@@ -1,0 +1,27 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.7/.schema/devbox.schema.json",
+  "packages": [
+    "python@3.12",
+    "git@latest",
+    "libsndfile@latest",
+    "ffmpeg@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "echo '🚀 Welcome to Alphabet Phonics & TTS devbox environment!'",
+      "if [ ! -d '.venv' ]; then",
+      "  echo 'Creating Python virtual environment in .venv...'",
+      "  python -m venv .venv",
+      "fi",
+      "source .venv/bin/activate",
+      "echo 'Virtualenv activated (.venv). Run ./scripts/setup.sh to install/update dependencies.'"
+    ],
+    "scripts": {
+      "setup": "bash scripts/setup.sh",
+      "generate-kokoro": "python scripts/generate_all_audio.py",
+      "generate-bark": "python scripts/generate_bark_narration.py",
+      "sync-db": "python scripts/init_db.py",
+      "serve": "python -m http.server 8000"
+    }
+  }
+}

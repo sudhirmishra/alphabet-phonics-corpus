@@ -8,6 +8,34 @@ Includes:
 - **Interactive Web Player**: Static GitHub Pages site in [`index.html`](index.html) for listening to words and sentences letter by letter.
 - **Batch Generation Scripts**: Automated generation using Python and Kokoro TTS.
 - **Suno Bark Expressive Narration**: Dedicated 200-word expressive story prompt (`data/bark_prompt_a_to_d.txt`) and pipeline script (`scripts/generate_bark_narration.py`) covering letters A to D.
+- **Dual Environment Management**: Reproducible Nix/Devbox environment (`devbox.json`) or standalone `scripts/setup.sh` + `requirements.txt`.
+
+---
+
+## 🛠 Setup & Environment Management
+
+You can set up and run this project using **Devbox** (recommended) or a standard **Python virtual environment**.
+
+### Option A: Using Devbox (Recommended)
+This repo provides a [`devbox.json`](devbox.json) with Python 3.12, `libsndfile`, `ffmpeg`, and automated hooks:
+```bash
+# Enter isolated shell (automatically activates .venv)
+devbox shell
+
+# Run project setup
+devbox run setup
+
+# Run generation
+devbox run generate-kokoro
+devbox run generate-bark
+```
+
+### Option B: Standalone Python Setup
+A self-contained [`scripts/setup.sh`](scripts/setup.sh) script handles virtual environment creation, dependency installation from [`requirements.txt`](requirements.txt), and SQLite sync:
+```bash
+bash scripts/setup.sh
+source .venv/bin/activate
+```
 
 ---
 
