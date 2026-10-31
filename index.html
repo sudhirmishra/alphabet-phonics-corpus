@@ -3,29 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grade-Wise Alphabet Phonics & Sentences Explorer (Kokoro TTS)</title>
+  <title>Phonics Audio Player | Kokoro TTS Neural Speech</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b0f19;
-      --card-bg: rgba(22, 30, 49, 0.75);
+      --bg: #090d16;
+      --card-bg: rgba(18, 25, 42, 0.85);
       --card-border: rgba(255, 255, 255, 0.08);
-      --card-hover: rgba(30, 41, 69, 0.95);
+      --card-hover: rgba(26, 36, 60, 0.95);
       --primary: #6366f1;
       --primary-hover: #4f46e5;
+      --primary-glow: rgba(99, 102, 241, 0.35);
       --secondary: #06b6d4;
       --accent: #f43f5e;
       --text: #f8fafc;
       --text-muted: #94a3b8;
-      --badge-prek: #ec4899;
-      --badge-k: #f59e0b;
-      --badge-g1: #10b981;
-      --badge-g2: #06b6d4;
-      --badge-g3: #6366f1;
-      --badge-g4: #8b5cf6;
-      --badge-g5: #d946ef;
+      --text-dim: #64748b;
+      --surface: rgba(15, 23, 42, 0.7);
+      --surface-border: rgba(255, 255, 255, 0.1);
     }
 
     * {
@@ -36,483 +33,806 @@
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background: radial-gradient(circle at top, #1e1b4b 0%, var(--bg) 60%);
+      background: radial-gradient(circle at top, #1e1b4b 0%, #0d1222 45%, var(--bg) 85%);
       color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      align-items: center;
+      padding: 2rem 1.5rem;
     }
 
     header {
-      padding: 2.5rem 1.5rem 1.5rem;
       text-align: center;
-      max-width: 960px;
-      margin: 0 auto;
+      max-width: 640px;
+      margin-bottom: 2rem;
     }
 
     .badge-top {
-      display: inline-block;
-      padding: 0.35rem 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
       font-size: 0.75rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      background: rgba(99, 102, 241, 0.2);
-      border: 1px solid rgba(99, 102, 241, 0.4);
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.35);
       color: #a5b4fc;
       border-radius: 9999px;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .badge-top .dot {
+      width: 7px;
+      height: 7px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
     }
 
     h1 {
-      font-size: 2.4rem;
+      font-size: 2.2rem;
       font-weight: 800;
       letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #fff 30%, #94a3b8 100%);
+      background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
 
     p.subtitle {
       color: var(--text-muted);
-      font-size: 1.05rem;
-      line-height: 1.6;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
-    /* Grade Selector Pills */
-    .grade-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0 1.5rem 1rem;
-      max-width: 1000px;
+    /* Player Container */
+    .player-wrapper {
+      width: 100%;
+      max-width: 580px;
       margin: 0 auto;
     }
 
-    .grade-btn {
-      padding: 0.45rem 1rem;
-      font-size: 0.85rem;
-      font-weight: 700;
-      border-radius: 9999px;
-      border: 1px solid var(--card-border);
-      background: var(--card-bg);
-      color: var(--text);
-      cursor: pointer;
-      transition: all 0.2s ease;
+    /* Selectors Header (Stylized Dropdowns) */
+    .selectors-row {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
     }
 
-    .grade-btn:hover {
-      border-color: var(--primary);
+    .select-box {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .select-box label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .custom-select-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 1rem;
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text);
+      backdrop-filter: blur(10px);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
+    }
+
+    .custom-select-trigger:hover {
+      border-color: rgba(99, 102, 241, 0.5);
+      background: rgba(30, 41, 69, 0.8);
       transform: translateY(-1px);
     }
 
-    .grade-btn.active {
-      background: var(--primary);
+    .custom-select-trigger.active {
       border-color: var(--primary);
-      box-shadow: 0 0 14px rgba(99, 102, 241, 0.5);
+      box-shadow: 0 0 16px var(--primary-glow);
     }
 
-    /* Alphabet Bar */
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.35rem;
-      padding: 0 1.5rem 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
+    .custom-select-trigger .arrow {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      transition: transform 0.2s ease;
     }
 
-    .alpha-btn {
-      width: 2.25rem;
-      height: 2.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.9rem;
+    .custom-select-trigger.active .arrow {
+      transform: rotate(180deg);
+    }
+
+    /* Dropdown Options List */
+    .custom-options {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      right: 0;
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      max-height: 250px;
+      overflow-y: auto;
+      z-index: 100;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+      display: none;
+      backdrop-filter: blur(16px);
+      padding: 0.35rem;
+    }
+
+    .custom-options.show {
+      display: block;
+      animation: dropdownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes dropdownFade {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .custom-option {
+      padding: 0.65rem 0.85rem;
+      font-size: 0.88rem;
+      font-weight: 600;
       border-radius: 8px;
-      border: 1px solid var(--card-border);
-      background: var(--card-bg);
-      color: var(--text);
       cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .alpha-btn:hover, .alpha-btn.active {
-      background: var(--primary);
-      border-color: var(--primary);
-      box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
-      transform: translateY(-2px);
-    }
-
-    /* Main Container */
-    main {
-      flex: 1;
-      max-width: 1200px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 1.5rem 3rem;
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-    }
-
-    .card:hover {
-      background: var(--card-hover);
-      border-color: rgba(99, 102, 241, 0.4);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.5);
-    }
-
-    .card-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      transition: all 0.15s ease;
+      color: #cbd5e1;
+    }
+
+    .custom-option:hover {
+      background: rgba(99, 102, 241, 0.2);
+      color: #ffffff;
+    }
+
+    .custom-option.selected {
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    /* Scrollbar for options */
+    .custom-options::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-options::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+    }
+
+    /* The Main Showcase Deck Player */
+    .deck-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 2.25rem 2rem;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .deck-glow {
+      position: absolute;
+      top: -60px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+      opacity: 0.2;
+      pointer-events: none;
+      filter: blur(30px);
+    }
+
+    /* Letter Display Avatar */
+    .letter-display {
+      width: 5.5rem;
+      height: 5.5rem;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--primary) 0%, #a855f7 100%);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: 800;
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+      margin-bottom: 1rem;
+      position: relative;
+      user-select: none;
+    }
+
+    .phonetic-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--secondary);
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      padding: 0.2rem 0.65rem;
+      border-radius: 6px;
       margin-bottom: 1.25rem;
     }
 
-    .letter-badge {
-      width: 3rem;
-      height: 3rem;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--primary) 0%, #a855f7 100%);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
+    /* Word Title */
+    .word-title {
+      font-size: 2.4rem;
       font-weight: 800;
-      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.35rem;
     }
 
-    .phonetic {
-      font-size: 0.85rem;
-      color: var(--secondary);
-      font-family: monospace;
-      background: rgba(6, 182, 212, 0.1);
-      padding: 0.25rem 0.6rem;
-      border-radius: 6px;
-      border: 1px solid rgba(6, 182, 212, 0.2);
-    }
-
-    .word-section {
-      background: rgba(0, 0, 0, 0.22);
-      border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 0.85rem;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-    }
-
-    .word-title-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-    }
-
-    .word-text-wrapper {
+    .meta-pills {
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      margin-bottom: 1.75rem;
     }
 
-    .word-text {
-      font-size: 1.3rem;
+    .meta-pill {
+      font-size: 0.72rem;
       font-weight: 700;
-      color: #fff;
-    }
-
-    .grade-tag {
-      font-size: 0.68rem;
-      font-weight: 700;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .tag-Pre-K { background: rgba(236, 72, 153, 0.2); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.3); }
-    .tag-Kindergarten { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
-    .tag-Grade-1 { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-    .tag-Grade-2 { background: rgba(6, 182, 212, 0.2); color: #38bdf8; border: 1px solid rgba(6, 182, 212, 0.3); }
-    .tag-Grade-3 { background: rgba(99, 102, 241, 0.2); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3); }
-    .tag-Grade-4 { background: rgba(139, 92, 246, 0.2); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.3); }
-    .tag-Grade-5 { background: rgba(217, 70, 239, 0.2); color: #e879f9; border: 1px solid rgba(217, 70, 239, 0.3); }
-
-    .sentence-section {
-      background: rgba(0, 0, 0, 0.18);
-      border-radius: 8px;
-      padding: 0.75rem;
-      border-left: 3px solid var(--secondary);
-      margin-top: 0.5rem;
+    .grade-badge-glow {
+      background: rgba(99, 102, 241, 0.15);
+      color: #a5b4fc;
+      border-color: rgba(99, 102, 241, 0.3);
     }
 
-    .sentence-text {
-      font-size: 0.92rem;
-      line-height: 1.5;
-      color: #e2e8f0;
-      margin-bottom: 0.6rem;
+    /* Sentence Box */
+    .sentence-card {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-left: 4px solid var(--secondary);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .sentence-card-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    .sentence-card-text {
+      font-size: 1.1rem;
+      font-weight: 500;
+      line-height: 1.55;
+      color: #f1f5f9;
       font-style: italic;
     }
 
-    .play-btn {
+    /* Playback Visualizer Bar */
+    .waveform-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      height: 24px;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .waveform-bar.active {
+      opacity: 1;
+    }
+
+    .wave-stick {
+      width: 4px;
+      background: var(--primary);
+      border-radius: 4px;
+      animation: wavePulse 1s ease-in-out infinite;
+    }
+
+    .wave-stick:nth-child(1) { height: 8px; animation-delay: 0.1s; }
+    .wave-stick:nth-child(2) { height: 16px; animation-delay: 0.25s; }
+    .wave-stick:nth-child(3) { height: 24px; animation-delay: 0.4s; }
+    .wave-stick:nth-child(4) { height: 14px; animation-delay: 0.15s; }
+    .wave-stick:nth-child(5) { height: 20px; animation-delay: 0.3s; }
+    .wave-stick:nth-child(6) { height: 10px; animation-delay: 0.2s; }
+    .wave-stick:nth-child(7) { height: 18px; animation-delay: 0.35s; }
+
+    @keyframes wavePulse {
+      0%, 100% { transform: scaleY(0.4); opacity: 0.5; }
+      50% { transform: scaleY(1); opacity: 1; }
+    }
+
+    /* Actions Controls */
+    .player-controls {
+      display: flex;
+      gap: 1rem;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .action-btn {
+      flex: 1;
+      max-width: 220px;
+      padding: 0.9rem 1.25rem;
+      font-size: 0.92rem;
+      font-weight: 700;
+      border-radius: 14px;
+      border: 1px solid var(--surface-border);
+      background: var(--surface);
+      color: #ffffff;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.4rem 0.8rem;
-      font-size: 0.78rem;
+      justify-content: center;
+      gap: 0.6rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .action-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .action-btn.btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, #4f46e5 100%);
+      border-color: transparent;
+      box-shadow: 0 4px 16px var(--primary-glow);
+    }
+
+    .action-btn.btn-primary:hover {
+      background: linear-gradient(135deg, #7073f3 0%, #4338ca 100%);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+    }
+
+    .action-btn.playing {
+      background: linear-gradient(135deg, var(--accent) 0%, #e11d48 100%) !important;
+      border-color: transparent;
+      animation: pulseBtn 1.5s infinite;
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% { box-shadow: 0 0 16px rgba(244, 63, 94, 0.4); }
+      50% { box-shadow: 0 0 26px rgba(244, 63, 94, 0.7); }
+    }
+
+    /* Bottom Quick Navigation Arrow Buttons */
+    .deck-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 1.5rem;
+      padding: 0 0.5rem;
+    }
+
+    .nav-arrow-btn {
+      background: transparent;
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      border-radius: 10px;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      border-radius: 6px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.05);
-      color: #fff;
       cursor: pointer;
-      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
     }
 
-    .play-btn:hover {
-      background: var(--primary);
-      border-color: var(--primary);
+    .nav-arrow-btn:hover:not(:disabled) {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
     }
 
-    .play-btn.playing {
-      background: var(--accent);
-      border-color: var(--accent);
-      animation: pulse 1.5s infinite;
+    .nav-arrow-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
+    .index-indicator {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      font-weight: 600;
     }
 
     footer {
+      margin-top: auto;
+      padding-top: 3rem;
       text-align: center;
-      padding: 2rem 1rem;
-      color: var(--text-muted);
       font-size: 0.85rem;
-      border-top: 1px solid var(--card-border);
-      background: rgba(0, 0, 0, 0.2);
+      color: var(--text-dim);
     }
 
     footer a {
       color: #a5b4fc;
       text-decoration: none;
     }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="badge-top">Graduated Reading Curriculum</div>
-    <h1>Grade-Wise Alphabet Phonics Explorer</h1>
-    <p class="subtitle">
-      Progression from simple early-reader words (Pre-K / Kindergarten CVC & Sight Words) through Grade 5 advanced vocabulary with example sentences.
-    </p>
+    <div class="badge-top">
+      <span class="dot"></span>
+      <span>Kokoro-82M TTS Audio Player</span>
+    </div>
+    <h1>Phonics & Words Explorer</h1>
+    <p class="subtitle">Select a letter and reading level to play isolated neural speech words and contextual example sentences.</p>
   </header>
 
-  <!-- Grade Filter Pills -->
-  <nav class="grade-bar" id="grade-filter">
-    <button class="grade-btn active" data-grade="ALL">All Grades</button>
-    <button class="grade-btn" data-grade="Pre-K">Pre-K (Ages 3-4)</button>
-    <button class="grade-btn" data-grade="Kindergarten">Kindergarten (Ages 5-6)</button>
-    <button class="grade-btn" data-grade="Grade 1">Grade 1 (Ages 6-7)</button>
-    <button class="grade-btn" data-grade="Grade 2">Grade 2 (Ages 7-8)</button>
-    <button class="grade-btn" data-grade="Grade 3">Grade 3 (Ages 8-9)</button>
-    <button class="grade-btn" data-grade="Grade 4">Grade 4 (Ages 9-10)</button>
-    <button class="grade-btn" data-grade="Grade 5">Grade 5 (Ages 10-11)</button>
-  </nav>
+  <div class="player-wrapper">
+    <!-- Stylized Dropdowns -->
+    <div class="selectors-row">
+      <!-- Alphabet Dropdown -->
+      <div class="select-box" id="letter-select-box">
+        <label>Alphabet</label>
+        <div class="custom-select-trigger" id="letter-trigger">
+          <span id="selected-letter-label">A</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="custom-options" id="letter-options">
+          <!-- Populated by JS -->
+        </div>
+      </div>
 
-  <!-- Alphabet Filter Bar -->
-  <nav class="filter-bar" id="alpha-filter">
-    <button class="alpha-btn active" data-letter="ALL">ALL</button>
-  </nav>
-
-  <main>
-    <div class="cards-grid" id="grid">
-      <!-- Cards rendered via JS -->
+      <!-- Grade Dropdown -->
+      <div class="select-box" id="grade-select-box">
+        <label>Grade Level</label>
+        <div class="custom-select-trigger" id="grade-trigger">
+          <span id="selected-grade-label">Pre-K (Ages 3-4)</span>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="custom-options" id="grade-options">
+          <!-- Populated by JS -->
+        </div>
+      </div>
     </div>
-  </main>
+
+    <!-- Main Single Player Deck Card -->
+    <div class="deck-card">
+      <div class="deck-glow"></div>
+
+      <!-- Letter Display -->
+      <div class="letter-display" id="deck-letter">A</div>
+
+      <!-- Phonetic Tag -->
+      <div class="phonetic-tag" id="deck-phonetic">/eɪ/ or /æ/</div>
+
+      <!-- Word Display -->
+      <div class="word-title" id="deck-word">Ant</div>
+
+      <!-- Meta info (Part of Speech, Grade) -->
+      <div class="meta-pills">
+        <span class="meta-pill" id="deck-pos">Noun</span>
+        <span class="meta-pill grade-badge-glow" id="deck-grade">Pre-K</span>
+      </div>
+
+      <!-- Contextual Sentence Box -->
+      <div class="sentence-card">
+        <div class="sentence-card-label">Example Sentence</div>
+        <div class="sentence-card-text" id="deck-sentence">"A tiny ant crawls on the leaf."</div>
+      </div>
+
+      <!-- Animated Audio Waveform -->
+      <div class="waveform-bar" id="waveform">
+        <div class="wave-stick"></div>
+        <div class="wave-stick"></div>
+        <div class="wave-stick"></div>
+        <div class="wave-stick"></div>
+        <div class="wave-stick"></div>
+        <div class="wave-stick"></div>
+        <div class="wave-stick"></div>
+      </div>
+
+      <!-- Audio Action Buttons -->
+      <div class="player-controls">
+        <button class="action-btn btn-primary" id="play-word-btn" onclick="playCurrentWord()">
+          <span id="word-btn-icon">▶</span>
+          <span id="word-btn-label">Play Word</span>
+        </button>
+        <button class="action-btn" id="play-sentence-btn" onclick="playCurrentSentence()">
+          <span id="sent-btn-icon">▶</span>
+          <span id="sent-btn-label">Play Sentence</span>
+        </button>
+      </div>
+
+      <!-- Navigation Arrows (Previous/Next Alphabet) -->
+      <div class="deck-nav-bar">
+        <button class="nav-arrow-btn" id="prev-btn" onclick="navAlphabet(-1)">
+          <span>←</span> Previous
+        </button>
+        <span class="index-indicator" id="index-indicator">Letter 1 of 26</span>
+        <button class="nav-arrow-btn" id="next-btn" onclick="navAlphabet(1)">
+          Next <span>→</span>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <footer>
     <p>Powered by <a href="https://github.com/hexgrad/kokoro" target="_blank">Kokoro TTS</a> | Open Source Phonics Dataset</p>
   </footer>
 
   <script>
-    let currentAudio = null;
-    let activeBtn = null;
+    const GRADES = [
+      { id: "Pre-K", label: "Pre-K (Ages 3-4)" },
+      { id: "Kindergarten", label: "Kindergarten (Ages 5-6)" },
+      { id: "Grade 1", label: "Grade 1 (Ages 6-7)" },
+      { id: "Grade 2", label: "Grade 2 (Ages 7-8)" },
+      { id: "Grade 3", label: "Grade 3 (Ages 8-9)" },
+      { id: "Grade 4", label: "Grade 4 (Ages 9-10)" },
+      { id: "Grade 5", label: "Grade 5 (Ages 10-11)" }
+    ];
+
     let corpusData = [];
-    let selectedLetter = 'ALL';
-    let selectedGrade = 'ALL';
+    let currentLetterIndex = 0;
+    let selectedGradeId = "Pre-K";
+    let currentAudio = null;
+    let activePlayingType = null; // 'word' or 'sentence'
 
-    async function loadCorpus() {
+    async function init() {
       try {
-        const response = await fetch('data/corpus.json');
-        corpusData = await response.json();
-        buildFilterBar();
-        setupGradeFilters();
-        renderCards();
-      } catch (err) {
-        console.error("Failed to load corpus.json:", err);
-        document.getElementById('grid').innerHTML = `
-          <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: #f87171;">
-            Failed to load dataset: ${err.message}
-          </div>
-        `;
+        const resp = await fetch('data/corpus.json');
+        corpusData = await resp.json();
+        setupDropdowns();
+        updateDeck();
+      } catch (e) {
+        console.error("Failed to load corpus data:", e);
       }
     }
 
-    function setupGradeFilters() {
-      document.querySelectorAll('.grade-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('.grade-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          selectedGrade = btn.dataset.grade;
-          renderCards();
-        });
-      });
-    }
-
-    function buildFilterBar() {
-      const filterBar = document.getElementById('alpha-filter');
-      corpusData.forEach(item => {
-        const btn = document.createElement('button');
-        btn.className = 'alpha-btn';
-        btn.dataset.letter = item.letter;
-        btn.textContent = item.letter;
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('.alpha-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          selectedLetter = item.letter;
-          renderCards();
-        });
-        filterBar.appendChild(btn);
+    function setupDropdowns() {
+      // 1. Setup Letter Options
+      const letterOpts = document.getElementById('letter-options');
+      letterOpts.innerHTML = '';
+      corpusData.forEach((item, idx) => {
+        const opt = document.createElement('div');
+        opt.className = `custom-option ${idx === currentLetterIndex ? 'selected' : ''}`;
+        opt.dataset.index = idx;
+        opt.textContent = `${item.letter} (${item.words[0]?.word || ''})`;
+        opt.onclick = () => {
+          currentLetterIndex = idx;
+          document.getElementById('selected-letter-label').textContent = item.letter;
+          closeAllDropdowns();
+          updateDeck();
+          highlightSelectedOption('letter-options', idx);
+        };
+        letterOpts.appendChild(opt);
       });
 
-      document.querySelector('.alpha-btn[data-letter="ALL"]').addEventListener('click', (e) => {
-        document.querySelectorAll('.alpha-btn').forEach(b => b.classList.remove('active'));
-        e.target.classList.add('active');
-        selectedLetter = 'ALL';
-        renderCards();
+      // 2. Setup Grade Options
+      const gradeOpts = document.getElementById('grade-options');
+      gradeOpts.innerHTML = '';
+      GRADES.forEach(g => {
+        const opt = document.createElement('div');
+        opt.className = `custom-option ${g.id === selectedGradeId ? 'selected' : ''}`;
+        opt.dataset.grade = g.id;
+        opt.textContent = g.label;
+        opt.onclick = () => {
+          selectedGradeId = g.id;
+          document.getElementById('selected-grade-label').textContent = g.label;
+          closeAllDropdowns();
+          updateDeck();
+          highlightSelectedOption('grade-options', g.id);
+        };
+        gradeOpts.appendChild(opt);
       });
-    }
 
-    function playAudio(path, btn) {
-      if (currentAudio) {
-        currentAudio.pause();
-        if (activeBtn) {
-          activeBtn.classList.remove('playing');
-          activeBtn.innerHTML = activeBtn.dataset.originalHtml;
+      // Trigger Listeners
+      const letterTrigger = document.getElementById('letter-trigger');
+      const gradeTrigger = document.getElementById('grade-trigger');
+
+      letterTrigger.onclick = (e) => {
+        e.stopPropagation();
+        const isOpen = letterOpts.classList.contains('show');
+        closeAllDropdowns();
+        if (!isOpen) {
+          letterOpts.classList.add('show');
+          letterTrigger.classList.add('active');
         }
-      }
+      };
 
-      if (btn === activeBtn && !currentAudio.paused) {
-        currentAudio = null;
-        activeBtn = null;
-        return;
-      }
+      gradeTrigger.onclick = (e) => {
+        e.stopPropagation();
+        const isOpen = gradeOpts.classList.contains('show');
+        closeAllDropdowns();
+        if (!isOpen) {
+          gradeOpts.classList.add('show');
+          gradeTrigger.classList.add('active');
+        }
+      };
 
-      const audio = new Audio(path);
-      currentAudio = audio;
-      activeBtn = btn;
-      btn.dataset.originalHtml = btn.innerHTML;
-      btn.classList.add('playing');
-      btn.innerHTML = `<span>⏹ Stop</span>`;
+      document.addEventListener('click', closeAllDropdowns);
+    }
 
-      audio.play().catch(e => {
-        btn.classList.remove('playing');
-        btn.innerHTML = btn.dataset.originalHtml;
-        alert("Audio file queued for Kokoro generation: " + path);
+    function closeAllDropdowns() {
+      document.querySelectorAll('.custom-options').forEach(o => o.classList.remove('show'));
+      document.querySelectorAll('.custom-select-trigger').forEach(t => t.classList.remove('active'));
+    }
+
+    function highlightSelectedOption(containerId, value) {
+      const container = document.getElementById(containerId);
+      container.querySelectorAll('.custom-option').forEach(opt => {
+        if (opt.dataset.index == value || opt.dataset.grade == value) {
+          opt.classList.add('selected');
+        } else {
+          opt.classList.remove('selected');
+        }
       });
+    }
 
-      audio.onended = () => {
-        btn.classList.remove('playing');
-        btn.innerHTML = btn.dataset.originalHtml;
-        currentAudio = null;
-        activeBtn = null;
+    function getCurrentEntry() {
+      if (!corpusData.length) return null;
+      const letterData = corpusData[currentLetterIndex];
+      if (!letterData) return null;
+
+      // Find word matching selected grade
+      let wordEntry = (letterData.words || []).find(w => w.grade === selectedGradeId);
+      if (!wordEntry && letterData.words.length) {
+        wordEntry = letterData.words[0];
+      }
+
+      return {
+        letter: letterData.letter,
+        phonetic: letterData.phonetic_hint || '',
+        word: wordEntry ? wordEntry.word : '',
+        pos: wordEntry ? (wordEntry.part_of_speech || 'noun') : '',
+        grade: wordEntry ? wordEntry.grade : selectedGradeId,
+        wordAudio: wordEntry ? wordEntry.audio_path : '',
+        sentence: wordEntry?.sentences?.[0]?.sentence || '',
+        sentAudio: wordEntry?.sentences?.[0]?.audio_path || ''
       };
     }
 
-    function renderCards() {
-      const grid = document.getElementById('grid');
-      grid.innerHTML = '';
+    function updateDeck() {
+      stopAudio();
+      const entry = getCurrentEntry();
+      if (!entry) return;
 
-      const filteredLetters = selectedLetter === 'ALL' 
-        ? corpusData 
-        : corpusData.filter(d => d.letter === selectedLetter);
+      document.getElementById('deck-letter').textContent = entry.letter;
+      document.getElementById('selected-letter-label').textContent = entry.letter;
+      document.getElementById('deck-phonetic').textContent = entry.phonetic;
+      document.getElementById('deck-word').textContent = entry.word;
+      document.getElementById('deck-pos').textContent = entry.pos;
+      document.getElementById('deck-grade').textContent = entry.grade;
+      document.getElementById('deck-sentence').textContent = `"${entry.sentence}"`;
 
-      filteredLetters.forEach(item => {
-        let matchingWords = item.words || [];
-        if (selectedGrade !== 'ALL') {
-          matchingWords = matchingWords.filter(w => w.grade === selectedGrade);
-        }
+      document.getElementById('index-indicator').textContent = `Letter ${currentLetterIndex + 1} of ${corpusData.length}`;
+      document.getElementById('prev-btn').disabled = (currentLetterIndex === 0);
+      document.getElementById('next-btn').disabled = (currentLetterIndex === corpusData.length - 1);
 
-        if (matchingWords.length === 0) return;
-
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.id = `card-${item.letter}`;
-
-        let wordsHtml = '';
-        matchingWords.forEach(w => {
-          let sentencesHtml = '';
-          (w.sentences || []).forEach(s => {
-            sentencesHtml += `
-              <div class="sentence-section">
-                <div class="sentence-text">"${s.sentence}"</div>
-                <button class="play-btn" onclick="playAudio('${s.audio_path}', this)">
-                  <span>▶ Sentence</span>
-                </button>
-              </div>
-            `;
-          });
-
-          const tagClass = 'tag-' + (w.grade || '').replace(/\s+/g, '-');
-          wordsHtml += `
-            <div class="word-section">
-              <div class="word-title-row">
-                <div class="word-text-wrapper">
-                  <span class="word-text">${w.word}</span>
-                  <span class="grade-tag ${tagClass}">${w.grade}</span>
-                </div>
-                <button class="play-btn" onclick="playAudio('${w.audio_path}', this)">
-                  <span>▶ Word</span>
-                </button>
-              </div>
-              ${sentencesHtml}
-            </div>
-          `;
-        });
-
-        card.innerHTML = `
-          <div class="card-header">
-            <div class="letter-badge">${item.letter}</div>
-            <div class="phonetic">${item.phonetic_hint || ''}</div>
-          </div>
-          ${wordsHtml}
-        `;
-        grid.appendChild(card);
-      });
+      highlightSelectedOption('letter-options', currentLetterIndex);
+      highlightSelectedOption('grade-options', selectedGradeId);
     }
 
-    loadCorpus();
+    function navAlphabet(delta) {
+      const newIdx = currentLetterIndex + delta;
+      if (newIdx >= 0 && newIdx < corpusData.length) {
+        currentLetterIndex = newIdx;
+        updateDeck();
+      }
+    }
+
+    function stopAudio() {
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+      }
+      activePlayingType = null;
+      document.getElementById('waveform').classList.remove('active');
+
+      const wordBtn = document.getElementById('play-word-btn');
+      wordBtn.classList.remove('playing');
+      document.getElementById('word-btn-icon').textContent = '▶';
+      document.getElementById('word-btn-label').textContent = 'Play Word';
+
+      const sentBtn = document.getElementById('play-sentence-btn');
+      sentBtn.classList.remove('playing');
+      document.getElementById('sent-btn-icon').textContent = '▶';
+      document.getElementById('sent-btn-label').textContent = 'Play Sentence';
+    }
+
+    function playAudio(path, type) {
+      if (activePlayingType === type && currentAudio && !currentAudio.paused) {
+        stopAudio();
+        return;
+      }
+
+      stopAudio();
+
+      activePlayingType = type;
+      currentAudio = new Audio(path);
+      document.getElementById('waveform').classList.add('active');
+
+      if (type === 'word') {
+        const btn = document.getElementById('play-word-btn');
+        btn.classList.add('playing');
+        document.getElementById('word-btn-icon').textContent = '⏹';
+        document.getElementById('word-btn-label').textContent = 'Stop';
+      } else {
+        const btn = document.getElementById('play-sentence-btn');
+        btn.classList.add('playing');
+        document.getElementById('sent-btn-icon').textContent = '⏹';
+        document.getElementById('sent-btn-label').textContent = 'Stop';
+      }
+
+      currentAudio.play().catch(e => {
+        console.error("Audio playback error:", e);
+        stopAudio();
+      });
+
+      currentAudio.onended = () => {
+        stopAudio();
+      };
+    }
+
+    function playCurrentWord() {
+      const entry = getCurrentEntry();
+      if (entry && entry.wordAudio) {
+        playAudio(entry.wordAudio, 'word');
+      }
+    }
+
+    function playCurrentSentence() {
+      const entry = getCurrentEntry();
+      if (entry && entry.sentAudio) {
+        playAudio(entry.sentAudio, 'sentence');
+      }
+    }
+
+    // Keyboard navigation (Left / Right arrow keys for letters, Space for audio)
+    document.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+      if (e.key === 'ArrowLeft') {
+        navAlphabet(-1);
+      } else if (e.key === 'ArrowRight') {
+        navAlphabet(1);
+      } else if (e.key === ' ' || e.code === 'Space') {
+        e.preventDefault();
+        playCurrentWord();
+      }
+    });
+
+    init();
   </script>
 </body>
 </html>
