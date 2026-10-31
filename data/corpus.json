@@ -1,0 +1,574 @@
+[
+  {
+    "letter": "A",
+    "phonetic_hint": "/eɪ/ or /æ/",
+    "description": "First letter of the alphabet",
+    "words": [
+      {
+        "id": "word_a_apple",
+        "word": "Apple",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/a_apple.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_a_apple_1",
+            "sentence": "An apple a day keeps the doctor away.",
+            "audio_path": "audio/sentences/a_apple_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "B",
+    "phonetic_hint": "/biː/",
+    "description": "Second letter of the alphabet",
+    "words": [
+      {
+        "id": "word_b_butterfly",
+        "word": "Butterfly",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/b_butterfly.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_b_butterfly_1",
+            "sentence": "The butterfly fluttered across the vibrant summer garden.",
+            "audio_path": "audio/sentences/b_butterfly_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "C",
+    "phonetic_hint": "/siː/",
+    "description": "Third letter of the alphabet",
+    "words": [
+      {
+        "id": "word_c_curiosity",
+        "word": "Curiosity",
+        "part_of_speech": "noun",
+        "difficulty": "intermediate",
+        "audio_path": "audio/words/c_curiosity.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_c_curiosity_1",
+            "sentence": "Curiosity sparks the beginning of every great discovery.",
+            "audio_path": "audio/sentences/c_curiosity_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "D",
+    "phonetic_hint": "/diː/",
+    "description": "Fourth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_d_dolphin",
+        "word": "Dolphin",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/d_dolphin.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_d_dolphin_1",
+            "sentence": "The dolphin leapt gracefully above the sparkling ocean waves.",
+            "audio_path": "audio/sentences/d_dolphin_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "E",
+    "phonetic_hint": "/iː/",
+    "description": "Fifth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_e_elephant",
+        "word": "Elephant",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/e_elephant.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_e_elephant_1",
+            "sentence": "The gentle elephant walked quietly along the river bank.",
+            "audio_path": "audio/sentences/e_elephant_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "F",
+    "phonetic_hint": "/ɛf/",
+    "description": "Sixth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_f_firefly",
+        "word": "Firefly",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/f_firefly.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_f_firefly_1",
+            "sentence": "A glowing firefly lit up the twilight evening.",
+            "audio_path": "audio/sentences/f_firefly_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "G",
+    "phonetic_hint": "/dʒiː/",
+    "description": "Seventh letter of the alphabet",
+    "words": [
+      {
+        "id": "word_g_giraffe",
+        "word": "Giraffe",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/g_giraffe.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_g_giraffe_1",
+            "sentence": "The tall giraffe nibbled leaves from the highest acacia branch.",
+            "audio_path": "audio/sentences/g_giraffe_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "H",
+    "phonetic_hint": "/eɪtʃ/",
+    "description": "Eighth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_h_harmony",
+        "word": "Harmony",
+        "part_of_speech": "noun",
+        "difficulty": "intermediate",
+        "audio_path": "audio/words/h_harmony.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_h_harmony_1",
+            "sentence": "The choir sang in perfect harmony under the cathedral dome.",
+            "audio_path": "audio/sentences/h_harmony_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "I",
+    "phonetic_hint": "/aɪ/",
+    "description": "Ninth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_i_island",
+        "word": "Island",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/i_island.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_i_island_1",
+            "sentence": "The tropical island was surrounded by crystal clear turquoise waters.",
+            "audio_path": "audio/sentences/i_island_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "J",
+    "phonetic_hint": "/dʒeɪ/",
+    "description": "Tenth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_j_journey",
+        "word": "Journey",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/j_journey.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_j_journey_1",
+            "sentence": "Every long journey begins with a single brave step.",
+            "audio_path": "audio/sentences/j_journey_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "K",
+    "phonetic_hint": "/keɪ/",
+    "description": "Eleventh letter of the alphabet",
+    "words": [
+      {
+        "id": "word_k_kangaroo",
+        "word": "Kangaroo",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/k_kangaroo.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_k_kangaroo_1",
+            "sentence": "A mother kangaroo carried her joey across the open grassland.",
+            "audio_path": "audio/sentences/k_kangaroo_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "L",
+    "phonetic_hint": "/ɛl/",
+    "description": "Twelfth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_l_lighthouse",
+        "word": "Lighthouse",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/l_lighthouse.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_l_lighthouse_1",
+            "sentence": "The beacon of the lighthouse guided ships safely through the storm.",
+            "audio_path": "audio/sentences/l_lighthouse_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "M",
+    "phonetic_hint": "/ɛm/",
+    "description": "Thirteenth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_m_mountain",
+        "word": "Mountain",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/m_mountain.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_m_mountain_1",
+            "sentence": "Snow blanketed the rugged peaks of the majestic mountain.",
+            "audio_path": "audio/sentences/m_mountain_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "N",
+    "phonetic_hint": "/ɛn/",
+    "description": "Fourteenth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_n_nebula",
+        "word": "Nebula",
+        "part_of_speech": "noun",
+        "difficulty": "intermediate",
+        "audio_path": "audio/words/n_nebula.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_n_nebula_1",
+            "sentence": "The telescope revealed a colourful nebula glowing in deep space.",
+            "audio_path": "audio/sentences/n_nebula_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "O",
+    "phonetic_hint": "/oʊ/",
+    "description": "Fifteenth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_o_ocean",
+        "word": "Ocean",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/o_ocean.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_o_ocean_1",
+            "sentence": "The vast ocean stretched endlessly beneath the golden horizon.",
+            "audio_path": "audio/sentences/o_ocean_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "P",
+    "phonetic_hint": "/piː/",
+    "description": "Sixteenth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_p_penguin",
+        "word": "Penguin",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/p_penguin.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_p_penguin_1",
+            "sentence": "The penguin waddled across the ice before sliding into the sea.",
+            "audio_path": "audio/sentences/p_penguin_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "Q",
+    "phonetic_hint": "/kjuː/",
+    "description": "Seventeenth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_q_quasar",
+        "word": "Quasar",
+        "part_of_speech": "noun",
+        "difficulty": "advanced",
+        "audio_path": "audio/words/q_quasar.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_q_quasar_1",
+            "sentence": "A distant quasar emits enormous amounts of cosmic energy.",
+            "audio_path": "audio/sentences/q_quasar_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "R",
+    "phonetic_hint": "/ɑːr/",
+    "description": "Eighteenth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_r_rainbow",
+        "word": "Rainbow",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/r_rainbow.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_r_rainbow_1",
+            "sentence": "A bright rainbow spanned across the valley after the afternoon shower.",
+            "audio_path": "audio/sentences/r_rainbow_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "S",
+    "phonetic_hint": "/ɛs/",
+    "description": "Nineteenth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_s_sunflower",
+        "word": "Sunflower",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/s_sunflower.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_s_sunflower_1",
+            "sentence": "The cheerful sunflower turned its face to follow the warmth of the sun.",
+            "audio_path": "audio/sentences/s_sunflower_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "T",
+    "phonetic_hint": "/tiː/",
+    "description": "Twentieth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_t_telescope",
+        "word": "Telescope",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/t_telescope.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_t_telescope_1",
+            "sentence": "Through the telescope, the craters on the moon appeared sharp and clear.",
+            "audio_path": "audio/sentences/t_telescope_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "U",
+    "phonetic_hint": "/juː/",
+    "description": "Twenty-first letter of the alphabet",
+    "words": [
+      {
+        "id": "word_u_umbrella",
+        "word": "Umbrella",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/u_umbrella.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_u_umbrella_1",
+            "sentence": "She opened her yellow umbrella as rain began to patter on the pavement.",
+            "audio_path": "audio/sentences/u_umbrella_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "V",
+    "phonetic_hint": "/viː/",
+    "description": "Twenty-second letter of the alphabet",
+    "words": [
+      {
+        "id": "word_v_volcano",
+        "word": "Volcano",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/v_volcano.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_v_volcano_1",
+            "sentence": "The ancient volcano rested peacefully under a blanket of clouds.",
+            "audio_path": "audio/sentences/v_volcano_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "W",
+    "phonetic_hint": "/ˈdʌbəl.juː/",
+    "description": "Twenty-third letter of the alphabet",
+    "words": [
+      {
+        "id": "word_w_waterfall",
+        "word": "Waterfall",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/w_waterfall.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_w_waterfall_1",
+            "sentence": "Cool mist rose from the roaring waterfall as it plunged into the pool.",
+            "audio_path": "audio/sentences/w_waterfall_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "X",
+    "phonetic_hint": "/ɛks/",
+    "description": "Twenty-fourth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_x_xylophone",
+        "word": "Xylophone",
+        "part_of_speech": "noun",
+        "difficulty": "intermediate",
+        "audio_path": "audio/words/x_xylophone.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_x_xylophone_1",
+            "sentence": "The young musician tapped a cheerful melody on the wooden xylophone.",
+            "audio_path": "audio/sentences/x_xylophone_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "Y",
+    "phonetic_hint": "/waɪ/",
+    "description": "Twenty-fifth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_y_yacht",
+        "word": "Yacht",
+        "part_of_speech": "noun",
+        "difficulty": "intermediate",
+        "audio_path": "audio/words/y_yacht.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_y_yacht_1",
+            "sentence": "The sleek white yacht sailed smoothly into the quiet harbor.",
+            "audio_path": "audio/sentences/y_yacht_1.wav"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "letter": "Z",
+    "phonetic_hint": "/zɛd/ or /ziː/",
+    "description": "Twenty-sixth letter of the alphabet",
+    "words": [
+      {
+        "id": "word_z_zebra",
+        "word": "Zebra",
+        "part_of_speech": "noun",
+        "difficulty": "beginner",
+        "audio_path": "audio/words/z_zebra.wav",
+        "image_path": "",
+        "sentences": [
+          {
+            "id": "sent_z_zebra_1",
+            "sentence": "The striped zebra grazed peacefully alongside the savannah herd.",
+            "audio_path": "audio/sentences/z_zebra_1.wav"
+          }
+        ]
+      }
+    ]
+  }
+]
