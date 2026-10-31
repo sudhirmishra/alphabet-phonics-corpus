@@ -1,0 +1,186 @@
+[
+  {
+    "id": "af_heart",
+    "name": "Heart (US Female)",
+    "type": "pure",
+    "desc": "Warm, engaging, standard Kokoro reference voice",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/af_heart.wav"
+  },
+  {
+    "id": "af_bella",
+    "name": "Bella (US Female)",
+    "type": "pure",
+    "desc": "Bright, clear, expressive",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/af_bella.wav"
+  },
+  {
+    "id": "af_sarah",
+    "name": "Sarah (US Female)",
+    "type": "pure",
+    "desc": "Soft, natural conversational tone",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/af_sarah.wav"
+  },
+  {
+    "id": "af_nicole",
+    "name": "Nicole (US Female)",
+    "type": "pure",
+    "desc": "Crisp, articulated educational tone",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/af_nicole.wav"
+  },
+  {
+    "id": "af_sky",
+    "name": "Sky (US Female)",
+    "type": "pure",
+    "desc": "Light, youthful, cheerful",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/af_sky.wav"
+  },
+  {
+    "id": "af_alloy",
+    "name": "Alloy (US Female)",
+    "type": "pure",
+    "desc": "Neutral, modern, balanced",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/af_alloy.wav"
+  },
+  {
+    "id": "af_nova",
+    "name": "Nova (US Female)",
+    "type": "pure",
+    "desc": "Confident, energetic",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/af_nova.wav"
+  },
+  {
+    "id": "af_jessica",
+    "name": "Jessica (US Female)",
+    "type": "pure",
+    "desc": "Warm, measured pacing",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/af_jessica.wav"
+  },
+  {
+    "id": "am_adam",
+    "name": "Adam (US Male)",
+    "type": "pure",
+    "desc": "Deep, authoritative, standard male",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/am_adam.wav"
+  },
+  {
+    "id": "am_michael",
+    "name": "Michael (US Male)",
+    "type": "pure",
+    "desc": "Warm, friendly storytelling tone",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/am_michael.wav"
+  },
+  {
+    "id": "am_echo",
+    "name": "Echo (US Male)",
+    "type": "pure",
+    "desc": "Resonant, clear diction",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/am_echo.wav"
+  },
+  {
+    "id": "am_eric",
+    "name": "Eric (US Male)",
+    "type": "pure",
+    "desc": "Calm, casual conversational",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/am_eric.wav"
+  },
+  {
+    "id": "am_liam",
+    "name": "Liam (US Male)",
+    "type": "pure",
+    "desc": "Youthful, energetic male",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/am_liam.wav"
+  },
+  {
+    "id": "am_onyx",
+    "name": "Onyx (US Male)",
+    "type": "pure",
+    "desc": "Deep baritone, smooth resonance",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/am_onyx.wav"
+  },
+  {
+    "id": "bf_emma",
+    "name": "Emma (UK Female)",
+    "type": "pure",
+    "desc": "Standard British RP, clear and poised",
+    "lang": "UK",
+    "audio_path": "audio/voice_samples/bf_emma.wav"
+  },
+  {
+    "id": "bf_isabella",
+    "name": "Isabella (UK Female)",
+    "type": "pure",
+    "desc": "Soft British accent, gentle cadence",
+    "lang": "UK",
+    "audio_path": "audio/voice_samples/bf_isabella.wav"
+  },
+  {
+    "id": "bm_george",
+    "name": "George (UK Male)",
+    "type": "pure",
+    "desc": "Distinguished, classic British narrative",
+    "lang": "UK",
+    "audio_path": "audio/voice_samples/bm_george.wav"
+  },
+  {
+    "id": "bm_daniel",
+    "name": "Daniel (UK Male)",
+    "type": "pure",
+    "desc": "Warm British male, modern broadcast feel",
+    "lang": "UK",
+    "audio_path": "audio/voice_samples/bm_daniel.wav"
+  },
+  {
+    "id": "hybrid_heart_bella_70_30",
+    "name": "Hybrid: Heart (70%) + Bella (30%)",
+    "type": "blend",
+    "desc": "Keeps Heart's warmth while gaining Bella's bright, crisp phonemic articulation",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/hybrid_heart_bella_70_30.wav"
+  },
+  {
+    "id": "hybrid_heart_nicole_60_40",
+    "name": "Hybrid: Heart (60%) + Nicole (40%)",
+    "type": "blend",
+    "desc": "Educational blend: friendly yet highly articulate for complex phonological words",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/hybrid_heart_nicole_60_40.wav"
+  },
+  {
+    "id": "hybrid_heart_sarah_50_50",
+    "name": "Hybrid: Heart (50%) + Sarah (50%)",
+    "type": "blend",
+    "desc": "Ultra-smooth, gentle storytelling blend with reduced sibilance",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/hybrid_heart_sarah_50_50.wav"
+  },
+  {
+    "id": "hybrid_adam_michael_60_40",
+    "name": "Hybrid: Adam (60%) + Michael (40%)",
+    "type": "blend",
+    "desc": "Balanced male narrator: Adam's clarity blended with Michael's warmth",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/hybrid_adam_michael_60_40.wav"
+  },
+  {
+    "id": "hybrid_heart_adam_duet_70_30",
+    "name": "Hybrid: Heart (70%) + Adam (30%)",
+    "type": "blend",
+    "desc": "Gives Heart a slightly richer, grounded lower mid-range frequency response",
+    "lang": "US",
+    "audio_path": "audio/voice_samples/hybrid_heart_adam_duet_70_30.wav"
+  }
+]

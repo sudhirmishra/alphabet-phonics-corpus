@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kokoro Voice Comparison & Hybrid Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.85);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #6366f1;
+      --accent: #f43f5e;
+      --green: #10b981;
+      --yellow: #facc15;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, var(--bg) 80%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      max-width: 680px;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: rgba(99, 102, 241, 0.2);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: #a5b4fc;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: 'Fredoka', cursive;
+      font-size: 1.8rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .sentence-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 2px dashed rgba(255, 255, 255, 0.15);
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      text-align: left;
+      max-width: 680px;
+      width: 100%;
+    }
+
+    .sentence-box p {
+      font-size: 1.05rem;
+      line-height: 1.5;
+      color: #fde047;
+      font-weight: 700;
+    }
+
+    .sentence-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    /* Filters */
+    .filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      padding: 0.45rem 1rem;
+      font-family: 'Fredoka', cursive;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 999px;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+    }
+
+    /* Grid */
+    .samples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1rem;
+      max-width: 1050px;
+      width: 100%;
+    }
+
+    .sample-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1rem 1.15rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s;
+    }
+
+    .sample-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+
+    .sample-card.is-blend {
+      border-color: rgba(244, 63, 94, 0.3);
+      background: rgba(30, 41, 59, 0.95);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+    }
+
+    .sample-title {
+      font-family: 'Fredoka', cursive;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .type-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .badge-pure { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+    .badge-blend { background: rgba(244, 63, 94, 0.2); color: #fb7185; }
+
+    .sample-desc {
+      font-size: 0.85rem;
+      line-height: 1.45;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .play-btn {
+      width: 100%;
+      min-height: 42px;
+      font-family: 'Fredoka', cursive;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #facc15;
+      color: #713f12;
+      box-shadow: 0 4px 0 #ca8a04;
+      transition: all 0.1s ease;
+    }
+
+    .play-btn:active {
+      transform: translateY(3px);
+      box-shadow: 0 1px 0 #ca8a04;
+    }
+
+    .play-btn.playing {
+      background: #f43f5e !important;
+      color: #fff !important;
+      box-shadow: 0 4px 0 #be123c !important;
+    }
+
+    .back-link {
+      margin-top: 2rem;
+      font-family: 'Fredoka', cursive;
+      color: #a5b4fc;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .back-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">Phonological Voice Benchmark</div>
+    <h1>Kokoro Voice & Hybrid Lab</h1>
+  </header>
+
+  <div class="sentence-box">
+    <div class="sentence-label">Phonological Stress Benchmark Sentence:</div>
+    <p>“With tenure, Suzie’d have all the more leisure for yachting, but her publications are no good.”</p>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterSamples('ALL')">All (23)</button>
+    <button class="filter-btn" onclick="filterSamples('blend')">✨ Hybrid Blends (5)</button>
+    <button class="filter-btn" onclick="filterSamples('US-Female')">US Female (8)</button>
+    <button class="filter-btn" onclick="filterSamples('US-Male')">US Male (6)</button>
+    <button class="filter-btn" onclick="filterSamples('UK')">British English (4)</button>
+  </div>
+
+  <div class="samples-grid" id="grid">
+    <!-- Populated by JS -->
+  </div>
+
+  <a class="back-link" href="index.html">← Back to Main Phonics Player</a>
+
+  <script>
+    let samples = [];
+    let currentAudio = null;
+    let activeBtn = null;
+    let currentFilter = 'ALL';
+
+    async function loadManifest() {
+      const resp = await fetch('audio/voice_samples/samples_manifest.json');
+      samples = await resp.json();
+      render();
+    }
+
+    function filterSamples(f) {
+      currentFilter = f;
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.toggle('active', b.textContent.includes(f) || (f === 'ALL' && b.textContent.includes('All')));
+      });
+      render();
+    }
+
+    function render() {
+      const grid = document.getElementById('grid');
+      grid.innerHTML = '';
+
+      const filtered = samples.filter(s => {
+        if (currentFilter === 'ALL') return true;
+        if (currentFilter === 'blend') return s.type === 'blend';
+        if (currentFilter === 'US-Female') return s.id.startsWith('af_');
+        if (currentFilter === 'US-Male') return s.id.startsWith('am_');
+        if (currentFilter === 'UK') return s.id.startsWith('bf_') || s.id.startsWith('bm_');
+        return true;
+      });
+
+      filtered.forEach(s => {
+        const card = document.createElement('div');
+        card.className = `sample-card ${s.type === 'blend' ? 'is-blend' : ''}`;
+        card.innerHTML = `
+          <div>
+            <div class="card-top">
+              <div class="sample-title">${s.name}</div>
+              <span class="type-badge ${s.type === 'blend' ? 'badge-blend' : 'badge-pure'}">${s.type}</span>
+            </div>
+            <div class="sample-desc">${s.desc}</div>
+          </div>
+          <button class="play-btn" onclick="playVoice('${s.audio_path}', this)">
+            <span>▶</span> Listen
+          </button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function playVoice(path, btn) {
+      if (currentAudio) {
+        currentAudio.pause();
+        if (activeBtn) {
+          activeBtn.classList.remove('playing');
+          activeBtn.innerHTML = '<span>▶</span> Listen';
+        }
+      }
+
+      if (btn === activeBtn && !currentAudio?.paused) {
+        currentAudio = null;
+        activeBtn = null;
+        return;
+      }
+
+      const audio = new Audio(path);
+      currentAudio = audio;
+      activeBtn = btn;
+      btn.classList.add('playing');
+      btn.innerHTML = '<span>⏹</span> Stop';
+
+      audio.play().catch(e => {
+        console.error(e);
+        btn.classList.remove('playing');
+        btn.innerHTML = '<span>▶</span> Listen';
+      });
+
+      audio.onended = () => {
+        btn.classList.remove('playing');
+        btn.innerHTML = '<span>▶</span> Listen';
+        currentAudio = null;
+        activeBtn = null;
+      };
+    }
+
+    loadManifest();
+  </script>
+</body>
+</html>
