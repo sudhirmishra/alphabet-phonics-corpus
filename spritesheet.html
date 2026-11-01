@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>2D Character Spritesheet Studio & Interactive Animator 🎮</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b101b;
+      --panel: #131b2e;
+      --panel-border: rgba(255, 255, 255, 0.1);
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --accent: #f43f5e;
+      --cyan: #06b6d4;
+      --yellow: #facc15;
+      --green: #10b981;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, var(--bg) 75%);
+      color: var(--text);
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem 0.75rem env(safe-area-inset-bottom, 1rem);
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      margin-bottom: 1rem;
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.65rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: rgba(99, 102, 241, 0.2);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: #a5b4fc;
+      border-radius: 999px;
+    }
+
+    .home-link {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      font-family: 'Fredoka', cursive;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      text-decoration: none;
+    }
+
+    /* Main Grid Studio Container */
+    .studio-container {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    /* Interactive Game Stage / Viewport */
+    .viewport-card {
+      background: var(--panel);
+      border: 2px solid var(--panel-border);
+      border-radius: 24px;
+      padding: 1.5rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Dynamic Stage Background */
+    .game-stage {
+      width: 100%;
+      height: 220px;
+      border-radius: 18px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 4px 16px rgba(0, 0, 0, 0.6);
+      transition: background 0.3s ease;
+    }
+
+    /* Stage Themes */
+    .stage-checker {
+      background-color: #1e293b;
+      background-image: 
+        linear-gradient(45deg, #0f172a 25%, transparent 25%), 
+        linear-gradient(-45deg, #0f172a 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #0f172a 75%), 
+        linear-gradient(-45deg, transparent 75%, #0f172a 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    }
+
+    .stage-dungeon {
+      background: linear-gradient(180deg, #1e1b4b 0%, #0f172a 60%, #1c1917 100%);
+      border-bottom: 8px solid #334155;
+    }
+
+    .stage-nature {
+      background: linear-gradient(180deg, #0284c7 0%, #38bdf8 55%, #15803d 56%, #166534 100%);
+    }
+
+    /* Ground Shadow */
+    .shadow-ellipse {
+      position: absolute;
+      bottom: 24px;
+      width: 80px;
+      height: 16px;
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 50%;
+      filter: blur(4px);
+      transition: transform 0.2s ease, width 0.2s ease;
+    }
+
+    /* The Animated Sprite Element */
+    .sprite-character {
+      position: absolute;
+      bottom: 28px;
+      width: 90.8px;
+      height: 169px;
+      background-repeat: no-repeat;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      transition: transform 0.1s linear;
+    }
+
+    /* Stage Controls (Theme, Transparency, Direction) */
+    .stage-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 0.85rem;
+      padding: 0 0.25rem;
+      font-size: 0.78rem;
+    }
+
+    .pill-group {
+      display: flex;
+      gap: 0.35rem;
+      align-items: center;
+    }
+
+    .pill-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #cbd5e1;
+      padding: 0.3rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .pill-btn.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Actions & State Tabs */
+    .action-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      width: 100%;
+    }
+
+    .action-tab-btn {
+      background: var(--panel);
+      border: 2px solid var(--panel-border);
+      border-radius: 16px;
+      padding: 0.75rem 0.25rem;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .action-tab-btn:active {
+      transform: scale(0.95);
+    }
+
+    .action-tab-btn.active {
+      background: #1e1b4b;
+      border-color: var(--cyan);
+      box-shadow: 0 0 16px rgba(6, 182, 212, 0.4);
+    }
+
+    .action-emoji {
+      font-size: 1.4rem;
+    }
+
+    .action-name {
+      font-family: 'Fredoka', cursive;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .action-frames {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-muted);
+    }
+
+    /* Controls Panel */
+    .controls-panel {
+      background: var(--panel);
+      border: 2px solid var(--panel-border);
+      border-radius: 20px;
+      padding: 1.15rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .slider-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .slider-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .slider-val {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--yellow);
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 6px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.15);
+      outline: none;
+      accent-color: var(--yellow);
+      cursor: pointer;
+    }
+
+    /* Playback & Direction Controls */
+    .button-group-row {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .ctrl-btn {
+      flex: 1;
+      min-height: 44px;
+      font-family: 'Fredoka', cursive;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4);
+      transition: all 0.1s;
+    }
+    .ctrl-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); }
+
+    .btn-play {
+      background: var(--yellow);
+      color: #713f12;
+    }
+
+    .btn-step {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-flip {
+      background: var(--cyan);
+      color: #ffffff;
+    }
+
+    /* Interactive Game Controller (Arrow Pads) */
+    .key-pad-card {
+      background: var(--panel);
+      border: 2px solid var(--panel-border);
+      border-radius: 20px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .pad-title {
+      font-family: 'Fredoka', cursive;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      margin-bottom: 0.6rem;
+    }
+
+    .arrow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      gap: 0.4rem;
+      justify-content: center;
+    }
+
+    .pad-btn {
+      height: 48px;
+      border-radius: 12px;
+      background: #1e293b;
+      border: 2px solid #334155;
+      color: #ffffff;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 3px 0 #0f172a;
+    }
+    .pad-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 #0f172a; background: var(--primary); }
+
+    /* Spritesheet Inspection Toggle */
+    .sheet-viewer {
+      background: var(--panel);
+      border: 2px solid var(--panel-border);
+      border-radius: 20px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .sheet-img-wrap {
+      width: 100%;
+      border-radius: 14px;
+      background: #0f172a;
+      overflow-x: auto;
+      text-align: center;
+      padding: 0.5rem;
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+    }
+
+    .sheet-img-wrap img {
+      max-width: 100%;
+      height: auto;
+      image-rendering: pixelated;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">
+      <span>🕹️</span>
+      <span>2D Spritesheet Studio</span>
+    </div>
+    <a href="index.html" class="home-link">Phonics Home 🌟</a>
+  </header>
+
+  <main class="studio-container">
+
+    <!-- Viewport Stage -->
+    <div class="viewport-card">
+      <div class="game-stage stage-dungeon" id="stage">
+        <div class="shadow-ellipse" id="sprite-shadow"></div>
+        <div class="sprite-character" id="sprite"></div>
+      </div>
+
+      <div class="stage-bar">
+        <div class="pill-group">
+          <span style="font-weight: 700; color: #94a3b8;">Stage:</span>
+          <button class="pill-btn active" onclick="setStage('dungeon', this)">Dungeon</button>
+          <button class="pill-btn" onclick="setStage('nature', this)">Grassland</button>
+          <button class="pill-btn" onclick="setStage('checker', this)">Grid</button>
+        </div>
+
+        <div class="pill-group">
+          <button class="pill-btn active" id="bg-cut-btn" onclick="toggleSpriteTransparency(this)">Clean BG ✨</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Animation State Selection Tabs (Idle, Walk, Run, Jump) -->
+    <div class="action-tabs">
+      <button class="action-tab-btn active" id="tab-idle" onclick="setAnimation('idle')">
+        <span class="action-emoji">🧍</span>
+        <span class="action-name">Idle</span>
+        <span class="action-frames">5 Frames (Row 1)</span>
+      </button>
+
+      <button class="action-tab-btn" id="tab-walk" onclick="setAnimation('walk')">
+        <span class="action-emoji">🚶</span>
+        <span class="action-name">Walk</span>
+        <span class="action-frames">5 Frames (Row 2)</span>
+      </button>
+
+      <button class="action-tab-btn" id="tab-run" onclick="setAnimation('run')">
+        <span class="action-emoji">🏃</span>
+        <span class="action-name">Run</span>
+        <span class="action-frames">5 Frames (Row 3)</span>
+      </button>
+
+      <button class="action-tab-btn" id="tab-jump" onclick="setAnimation('jump')">
+        <span class="action-emoji">🦘</span>
+        <span class="action-name">Jump</span>
+        <span class="action-frames">5 Frames (Row 4)</span>
+      </button>
+    </div>
+
+    <!-- Playback & Speed Controls -->
+    <div class="controls-panel">
+      <!-- FPS Speed Slider -->
+      <div class="slider-row">
+        <div class="slider-label">
+          <span>Animation Speed:</span>
+          <span class="slider-val" id="fps-label">8 FPS</span>
+        </div>
+        <input type="range" id="fps-slider" min="1" max="24" value="8" oninput="changeFps(this.value)">
+      </div>
+
+      <!-- Playback Buttons -->
+      <div class="button-group-row">
+        <button class="ctrl-btn btn-play" id="play-pause-btn" onclick="togglePlayPause()">
+          <span id="play-btn-icon">⏸️</span> Pause
+        </button>
+        <button class="ctrl-btn btn-step" onclick="stepFrame(1)">
+          ⏭️ Step Frame
+        </button>
+        <button class="ctrl-btn btn-flip" onclick="toggleFacing()">
+          🔄 Flip Face
+        </button>
+      </div>
+    </div>
+
+    <!-- Interactive Walk Simulator (Control with buttons or keyboard) -->
+    <div class="key-pad-card">
+      <div class="pad-title">🎮 Interactive Keyboard / Touch Controls (Move Character)</div>
+      <div class="arrow-grid">
+        <div></div>
+        <button class="pad-btn" onmousedown="triggerAction('jump')" ontouchstart="triggerAction('jump')">⬆️</button>
+        <div></div>
+
+        <button class="pad-btn" onmousedown="startMove(-1)" ontouchstart="startMove(-1)" onmouseup="stopMove()" ontouchend="stopMove()">⬅️</button>
+        <button class="pad-btn" onclick="setAnimation('idle')">🛑</button>
+        <button class="pad-btn" onmousedown="startMove(1)" ontouchstart="startMove(1)" onmouseup="stopMove()" ontouchend="stopMove()">➡️</button>
+      </div>
+    </div>
+
+    <!-- Spritesheet Source Inspector -->
+    <div class="sheet-viewer">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-size: 0.85rem; font-weight: 700; color: #cbd5e1;">🖼️ Raw Spritesheet Map (5x4 Grid)</span>
+        <span style="font-family: 'JetBrains Mono'; font-size: 0.72rem; color: #a5b4fc;">454 x 676 px</span>
+      </div>
+      <div class="sheet-img-wrap">
+        <img id="source-sheet-preview" src="assets/sprites/character_spritesheet_transparent.png" alt="Spritesheet Grid">
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // Frame metrics (Width 454 / 5 cols = 90.8px, Height 676 / 4 rows = 169px)
+    const FRAME_W = 90.8;
+    const FRAME_H = 169.0;
+
+    const ANIMATIONS = {
+      idle: { row: 0, frames: 5, defaultFps: 6 },
+      walk: { row: 1, frames: 5, defaultFps: 8 },
+      run:  { row: 2, frames: 5, defaultFps: 12 },
+      jump: { row: 3, frames: 5, defaultFps: 7, loop: false }
+    };
+
+    let currentAnim = 'idle';
+    let currentFrame = 0;
+    let fps = 8;
+    let isPlaying = true;
+    let isFacingRight = true;
+    let charX = 0; // Horizontal offset on stage
+    let isMoving = false;
+    let moveDir = 0;
+    let useTransparent = true;
+    let animTimer = null;
+
+    const spriteEl = document.getElementById('sprite');
+    const shadowEl = document.getElementById('sprite-shadow');
+
+    // URLs
+    const transparentSheetUrl = "assets/sprites/character_spritesheet_transparent.png";
+    const rawSheetUrl = "assets/sprites/character_spritesheet.jpg";
+
+    function init() {
+      applySpritesheet();
+      renderFrame();
+      startLoop();
+      setupKeyboard();
+    }
+
+    function applySpritesheet() {
+      const url = useTransparent ? transparentSheetUrl : rawSheetUrl;
+      spriteEl.style.backgroundImage = `url('${url}')`;
+      spriteEl.style.backgroundSize = `454px 676px`;
+      document.getElementById('source-sheet-preview').src = url;
+    }
+
+    function renderFrame() {
+      const anim = ANIMATIONS[currentAnim];
+      const posX = -(currentFrame * FRAME_W);
+      const posY = -(anim.row * FRAME_H);
+
+      spriteEl.style.backgroundPosition = `${posX}px ${posY}px`;
+
+      // Transform positioning & facing direction
+      const scaleX = isFacingRight ? 1 : -1;
+      spriteEl.style.transform = `translateX(${charX}px) scaleX(${scaleX})`;
+
+      // Jump vertical arc simulation if in jump animation
+      if (currentAnim === 'jump') {
+        let jumpY = 0;
+        if (currentFrame === 1) jumpY = -15;
+        if (currentFrame === 2) jumpY = -35;
+        if (currentFrame === 3) jumpY = -25;
+        if (currentFrame === 4) jumpY = 0;
+        spriteEl.style.transform = `translate(${charX}px, ${jumpY}px) scaleX(${scaleX})`;
+        shadowEl.style.transform = `translateX(${charX}px) scale(${1 - Math.abs(jumpY)/60})`;
+      } else {
+        shadowEl.style.transform = `translateX(${charX}px) scale(1)`;
+      }
+    }
+
+    function tick() {
+      if (!isPlaying) return;
+
+      const anim = ANIMATIONS[currentAnim];
+      currentFrame = (currentFrame + 1);
+
+      if (currentFrame >= anim.frames) {
+        if (anim.loop === false) {
+          // If non-looping jump finished, return to idle or walk
+          currentAnim = isMoving ? (fps > 10 ? 'run' : 'walk') : 'idle';
+          currentFrame = 0;
+          updateTabButtons();
+        } else {
+          currentFrame = 0;
+        }
+      }
+
+      if (isMoving) {
+        charX += moveDir * 4;
+        // Limit movement bounds on stage
+        const maxRange = 140;
+        if (charX > maxRange) charX = maxRange;
+        if (charX < -maxRange) charX = -maxRange;
+      }
+
+      renderFrame();
+    }
+
+    function startLoop() {
+      if (animTimer) clearInterval(animTimer);
+      animTimer = setInterval(tick, 1000 / fps);
+    }
+
+    function setAnimation(animName) {
+      if (currentAnim === animName && isPlaying) return;
+      currentAnim = animName;
+      currentFrame = 0;
+      updateTabButtons();
+      renderFrame();
+    }
+
+    function updateTabButtons() {
+      document.querySelectorAll('.action-tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(`tab-${currentAnim}`)?.classList.add('active');
+    }
+
+    function changeFps(val) {
+      fps = parseInt(val, 10);
+      document.getElementById('fps-label').textContent = `${fps} FPS`;
+      startLoop();
+    }
+
+    function togglePlayPause() {
+      isPlaying = !isPlaying;
+      document.getElementById('play-btn-icon').textContent = isPlaying ? '⏸️' : '▶️';
+      document.getElementById('play-pause-btn').innerHTML = isPlaying ? '<span>⏸️</span> Pause' : '<span>▶️</span> Resume';
+    }
+
+    function stepFrame(delta) {
+      isPlaying = false;
+      document.getElementById('play-pause-btn').innerHTML = '<span>▶️</span> Resume';
+      const anim = ANIMATIONS[currentAnim];
+      currentFrame = (currentFrame + delta + anim.frames) % anim.frames;
+      renderFrame();
+    }
+
+    function toggleFacing() {
+      isFacingRight = !isFacingRight;
+      renderFrame();
+    }
+
+    function setStage(theme, btn) {
+      document.querySelectorAll('.stage-bar .pill-btn').forEach(b => {
+        if (!b.id) b.classList.remove('active');
+      });
+      btn.classList.add('active');
+      const stage = document.getElementById('stage');
+      stage.className = `game-stage stage-${theme}`;
+    }
+
+    function toggleSpriteTransparency(btn) {
+      useTransparent = !useTransparent;
+      btn.textContent = useTransparent ? "Clean BG ✨" : "Original Raw 🖼️";
+      btn.classList.toggle('active', useTransparent);
+      applySpritesheet();
+    }
+
+    // Moving Controls
+    function startMove(dir) {
+      isMoving = true;
+      moveDir = dir;
+      isFacingRight = (dir > 0);
+      setAnimation('walk');
+    }
+
+    function stopMove() {
+      isMoving = false;
+      moveDir = 0;
+      if (currentAnim !== 'jump') {
+        setAnimation('idle');
+      }
+    }
+
+    function triggerAction(action) {
+      if (action === 'jump') {
+        setAnimation('jump');
+      }
+    }
+
+    // Keyboard support (Arrow keys + Space)
+    function setupKeyboard() {
+      window.addEventListener('keydown', (e) => {
+        if (e.repeat) return;
+        if (e.key === 'ArrowRight') startMove(1);
+        if (e.key === 'ArrowLeft') startMove(-1);
+        if (e.key === 'ArrowUp' || e.code === 'Space') triggerAction('jump');
+        if (e.key === 'Shift') {
+          if (isMoving) setAnimation('run');
+        }
+      });
+
+      window.addEventListener('keyup', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') stopMove();
+        if (e.key === 'Shift') {
+          if (isMoving) setAnimation('walk');
+        }
+      });
+    }
+
+    init();
+  </script>
+</body>
+</html>
